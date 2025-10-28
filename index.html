@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
 </head>
 <body class = "noselect" id = "app">
-    <header>
+    <header role="navigation">
         <!-- Бургер кнопка -->
         <button class="burger-btn" @click="toggleMobileMenu">
             <span class="burger-line"></span>
@@ -21,23 +21,23 @@
             <span class="burger-line"></span>
         </button>
         
-        <div class="menu">
+        <div class="menu" role="navigation">
             <ul class="menu_list">
-                <li class="menu_item"><a href="#about">Обо мне</a></li>
-                <li class="menu_item"><a href="#consult">Услуги</a></li>
-                <li class="menu_item"><a href="#group">Групповая терапия</a></li>
-                <li class="menu_item"><a href="#faq">Вопросы</a></li>
-                <li class="menu_item"><a href="#contacts">Контакты</a></li>
+                <li class="menu_item"><a href="#about" role="button">Обо мне</a></li>
+                <li class="menu_item"><a href="#consult" role="button">Услуги</a></li>
+                <li class="menu_item"><a href="#group" role="button">Групповая терапия</a></li>
+                <li class="menu_item"><a href="#faq" role="button">Вопросы</a></li>
+                <li class="menu_item"><a href="#contacts" role="button">Контакты</a></li>
             </ul>
         </div>
         <div class="btnMenu">
-            <img src="src/whatsapp.svg" alt="" class="btnMenu_img">
-            <a href="#card" class="btnMenu_item btn">Карта дня</a>
+            <img src="src/whatsapp.svg" alt="" class="btnMenu_img" role="button">
+            <a href="#card" class="btnMenu_item btn" role="button">Карта дня</a>
         </div>
     </header>
 
     <!-- Мобильное меню -->
-    <div class="mobile-menu" :class="{ 'mobile-menu--active': isMobileMenuOpen }">
+    <div class="mobile-menu" :class="{ 'mobile-menu--active': isMobileMenuOpen }" role="navigation">
         <div class="mobile-menu__overlay" @click="closeMobileMenu"></div>
         <div class="mobile-menu__content">
             <button class="mobile-menu__close" @click="closeMobileMenu">
@@ -49,27 +49,27 @@
             <nav class="mobile-nav">
                 <ul class="mobile-nav__list">
                     <li class="mobile-nav__item">
-                        <a href="#about" class="mobile-nav__link" @click="closeMobileMenu">
+                        <a href="#about" class="mobile-nav__link" @click="closeMobileMenu" role="button">
                             <span class="mobile-nav__text">Обо мне</span>
                         </a>
                     </li>
                     <li class="mobile-nav__item">
-                        <a href="#consult" class="mobile-nav__link" @click="closeMobileMenu">
+                        <a href="#consult" class="mobile-nav__link" @click="closeMobileMenu" role="button">
                             <span class="mobile-nav__text">Услуги</span>
                         </a>
                     </li>
                     <li class="mobile-nav__item">
-                        <a href="#group" class="mobile-nav__link" @click="closeMobileMenu">
+                        <a href="#group" class="mobile-nav__link" @click="closeMobileMenu" role="button">
                             <span class="mobile-nav__text">Групповая терапия</span>
                         </a>
                     </li>
                     <li class="mobile-nav__item">
-                        <a href="#faq" class="mobile-nav__link" @click="closeMobileMenu">
+                        <a href="#faq" class="mobile-nav__link" @click="closeMobileMenu" role="button">
                             <span class="mobile-nav__text">Вопросы</span>
                         </a>
                     </li>
                     <li class="mobile-nav__item">
-                        <a href="#contacts" class="mobile-nav__link" @click="closeMobileMenu">
+                        <a href="#contacts" class="mobile-nav__link" @click="closeMobileMenu" role="button">
                             <span class="mobile-nav__text">Контакты</span>
                         </a>
                     </li>
@@ -77,13 +77,13 @@
             </nav>
         </div>
     </div>
-
+    <main role="main">
     <section class="hero section">
         <div class="hero_text">
             <h2 class="hero_header">Мария<br>Позднякова</h2>
             <h1 class="hero_description">Психолог гештальт-терапевт</h1>
-            <a href="" class="hero_btn btn descbtn">Записаться на консультацию&#8195;→</a>
-            <a href="" class="hero_btn btn mobbtn">Записаться&#8195;→</a>
+            <a href="" class="hero_btn btn descbtn" role="button">Записаться на консультацию&#8195;→</a>
+            <a href="" class="hero_btn btn mobbtn" role="button">Записаться&#8195;→</a>
         </div>
         <img src="" alt="" class="hero_img">
     </section>
@@ -150,7 +150,7 @@
                         <li class="about_maps_item">арт-терапия</li>
                     </ul>
                 </div>
-                <a href="javascript:void(0)" class="about_text_btn btn" @click="openModal">Посмотреть документы</a>
+                <a href="javascript:void(0)" class="about_text_btn btn" @click="openModal" role="button">Посмотреть документы</a>
             </div>
             <img src="src/img/aboutIMG.png" alt="" class="about_img">
         </div>
@@ -166,7 +166,7 @@
                     <li class="consult_desc_item">Очно или онлайн</li>
                     <li class="consult_desc_item">60 минут</li>
                 </ul>
-                <a href="" class="consult_btn btn">Записаться&#8195;→</a>
+                <a href="" class="consult_btn btn" role="button">Записаться&#8195;→</a>
             </div>
             <div class="consult_item">
                 <h3 class="consult_item_head">Пакет консультаций</h3>
@@ -175,7 +175,7 @@
                     <li class="consult_desc_item">Очно или онлайн</li>
                     <li class="consult_desc_item">6 консультаций по 60 минут</li>
                 </ul>
-                <a href="" class="consult_btn btn">Записаться&#8195;→</a>
+                <a href="" class="consult_btn btn" role="button">Записаться&#8195;→</a>
             </div>
         </div>
     </section>
@@ -187,7 +187,7 @@
             <div class="groupTherapy_text">
                 <h3 class="groupTherapy_text_head">Терапевтическая группа</h3>
                 <p class="groupTherapy_text_desc">Это групповое занятие или сессия, где участники собираются вместе, чтобы поддерживать друг друга и работать над своими эмоциональными проблемами или трудностями. Целью такой группы является помощь людям в общении, улучшении решения проблем, развитии навыков эмоциональной регуляции и взаимной поддержке</p>
-                <a href="" class="groupTherapy_text_btn btn">Подробнее&#8195;→</a>
+                <a href="" class="groupTherapy_text_btn btn" role="button">Подробнее&#8195;→</a>
             </div>
         </div>
     </section>
@@ -233,22 +233,22 @@
                 <p class="card_desc work_desc" v-html="card[numRnd].description"></p>
             </div>
 
-            <div class="card_img" v-on:click="numRnd=getRandomInt(1,19)">
+            <div class="card_img" v-on:click="numRnd=getRandomInt(1,19)" role="button">
                 <img
                     v-bind:src= "card[numRnd].path" alt="" class="card_item">
             </div>
             
         </div>
     </section>
-
-    <section class="contacts" id="contacts">
+    </main>
+    <section class="contacts" id="contacts" role="contentinfo">
             <div class="container">
                 <h2 class="contacts_header section_head">
                     Контакты
                 </h2>
                 <div class="contactsFlex">
                     <div class="maps">
-                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A0cac4d849df5c4c825b478a52aa4ffcc95b74deef86d537bbda5214601d46da3&amp;source=constructor" width="650" height="435" frameborder="0" class="maps"></iframe>
+                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A0cac4d849df5c4c825b478a52aa4ffcc95b74deef86d537bbda5214601d46da3&amp;source=constructor" width="650" height="435" frameborder="0" class="maps" role="application" title="Психолог Пятигорск"></iframe>
                     </div>
                     <ul class="contacts__list">
                         <li class="contacts__item">
@@ -269,7 +269,7 @@
     </section>
 
     <!-- Модальное окно -->
-    <div class="modal" :class="{ 'modal--active': isModalOpen }">
+    <div class="modal" :class="{ 'modal--active': isModalOpen }" role="dialog">
         <div class="modal__overlay" @click="closeModal"></div>
         <div class="modal__content">
             <button class="modal__close" @click="closeModal">
@@ -289,7 +289,7 @@
     </div>
 
     <!-- Модальное окно для просмотра изображения -->
-    <div class="image-modal" :class="{ 'image-modal--active': isImageModalOpen }">
+    <div class="image-modal" :class="{ 'image-modal--active': isImageModalOpen }" role="dialog">
         <div class="image-modal__overlay" @click="closeImageModal"></div>
         <div class="image-modal__content">
             <button class="image-modal__close" @click="closeImageModal">
