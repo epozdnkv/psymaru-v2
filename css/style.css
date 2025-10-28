@@ -113,6 +113,14 @@ header{
     display: flex;
     align-items: center;
     padding-left: 170px;
+    background-image: 
+        url("../src/img/heroIMG.png"),
+        url("../src/img/heroBG.svg");
+    background-repeat: no-repeat;
+    background-position: 
+        calc(100% - 310px) bottom,  /* heroIMG: 310px от правого края */
+        bottom right;                /* heroBG: в правом нижнем углу */
+    height: 580px;
 }
 .hero_header {
     font-weight: 700;
@@ -138,7 +146,6 @@ header{
     box-sizing: border-box;
     object-fit: cover;
     width: 50%; /* Явно указываем ширину */
-    height: 100%; /* Занимает всю высоту контейнера */
 }
 
 /* С чем работаю*/
@@ -242,7 +249,7 @@ header{
 /* Индивидуальная консультация*/
 .consult{
     background-image:
-        url("../src/img/consultBG.png"), 
+        url("../src/img/consultBG.svg"), 
         linear-gradient(90deg, var(--dvioletColor), var(--lvioletColor));
     background-size: cover;
     background-repeat: no-repeat;
@@ -295,15 +302,18 @@ header{
     gap: 40px; /* Отступ между элементами */
 }
 .groupTherapy_img, .groupTherapy_text{
-    flex: 1;
+    flex: 1 1 50%;
+    border-radius: 48px;
+    border: 1px solid #e7e7e7;
+    width: 100%; /* Добавляем одинаковую ширину */
+    box-sizing: border-box; /* Учитываем padding в ширине */
 }
+
 .groupTherapy_text{
     display: flex;
     flex-direction: column;
     padding: 40px;
     background-color: var(--whiteColor);
-    border: 1px solid #e7e7e7;
-    border-radius: 48px;
 }
 .groupTherapy_text_head{
     font: 700 40px 'Inter';
@@ -911,6 +921,9 @@ body.mobile-menu-open {
     /* Hero специфичные стили */
     .hero {
         padding-left: 28px; /* Убираем большой отступ слева */
+        background-position: 
+            calc(100% - 165px) bottom,  /* heroIMG: 310px от правого края */
+            calc(100% + 165px) bottom;  /* heroBG: в правом нижнем углу */
     }
     
     .hero_description {
@@ -947,11 +960,10 @@ body.mobile-menu-open {
     .consult_item_price{
          margin-bottom: 110px;
     }
-    .hero_text {
-        z-index: 10;
-    }
-    .hero_img {
-        z-index: 5;
+    .hero{
+        background-position: 
+            calc(100% - 40px) bottom,  /* heroIMG: 310px от правого края */
+            calc(100% + 240px) bottom;  /* heroBG: в правом нижнем углу */
     }
     .hero_btn {
         padding: 20px 40px;
@@ -990,12 +1002,14 @@ body.mobile-menu-open {
         display: none !important;
     }
     section, .section{
-        width: 768px;
+        width: calc(100% - 48px);
+        max-width: 768px;
         padding: 70px 45px;
     }
     /* Header */
     header {
-        width: 768px;
+        width: calc(100% - 48px);
+        max-width: 768px;
         margin: 32px auto 0px auto;
         justify-content: space-between;
         padding: 0 24px;
@@ -1007,6 +1021,10 @@ body.mobile-menu-open {
         justify-content: center;
         padding: 60px 32px;
         gap: 40px;
+        height: 1000px;
+        background-position: 
+            center bottom,  /* heroIMG*/
+            center bottom;  /* heroBG*/
     }
     .hero_header {
         margin-bottom: 24px;
@@ -1059,6 +1077,9 @@ body.mobile-menu-open {
     .groupTherapy_desc{
         flex-direction: column-reverse;
     }
+    .groupTherapy_img{
+        height: 470px;
+    }
     .cardFlex{
         flex-direction: column;
         align-items: center;
@@ -1085,14 +1106,16 @@ body.mobile-menu-open {
         padding: 15px 30px;
     }
     section, .section{
-        width: 360px;
+        width: calc(100% - 40px);
+        max-width: 767px;
         padding: 32px 16px;
         border-radius: 40px;
         margin: 16px auto 0px auto;
     }
     /* Header */
     header {
-        width: 360px;
+        width: calc(100% - 40px);
+        max-width: 767px;
         margin: 32px auto 0px auto;
     }
     .btnMenu_img{
@@ -1104,6 +1127,13 @@ body.mobile-menu-open {
         justify-content: center;
         padding: 40px 20px;
         gap: 32px;
+        height: 530px;
+        background-position: 
+            center bottom,  /* heroIMG*/
+            center bottom;  /* heroBG*/
+        background-size: 
+            210px auto,     /* Уменьшаем размер heroIMG */
+            100% 320px;          /* heroBG остается на весь экран */
     }
     
     .hero_text {
