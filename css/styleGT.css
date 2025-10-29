@@ -1,0 +1,116 @@
+/* HERO*/
+.heroGT{
+    display: flex;
+    align-items: center;
+    padding-left: 170px;
+    background-image: url("../src/img/heroBG.svg");
+    background-repeat: no-repeat;
+    background-position: bottom right;/* heroBG: в правом нижнем углу */
+    height: 580px;
+}
+
+.heroGT_text{
+    flex: 1 1 60%;
+    width: 60%; /* Явно указываем ширину */
+}
+
+/* Психологический детокс*/
+.detocs{
+    background: radial-gradient(var(--lvioletColor), var(--dvioletColor));
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+}
+.detocs_header{
+    margin-bottom: 24px !important;
+}
+.detocs_descriptions{
+    font: 400 32px 'Inter';
+    color: var(--whiteColor);
+    margin-bottom: 40px;
+}
+
+/* Онлайн группа*/
+.onlineGroup{
+    background: radial-gradient(var(--dorangeColor), var(--lorangeColor));
+}
+.onlineGroup_list{
+    align-items: center;
+}
+.onlineGroup_text_head{
+    font: 700 40px 'Inter';
+    color: var(--whiteColor);
+    margin-bottom: 24px;
+}
+.onlineGroup_text_item{
+    font: 400 24px 'Inter';
+    color: var(--whiteColor);
+    margin-bottom: 24px;
+    list-style:inside;
+}
+.onlineGroup_text, .onlineGroup_item{
+    width: 50%;
+}
+
+@media (min-width: 1024px) and (max-width: 1279px){
+    .heroGT{
+        background-position: calc(100% + 240px) bottom;  /* heroBG: в правом нижнем углу */
+        padding: 70px 45px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .heroGT {
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        padding: 60px 32px;
+        gap: 40px;
+        height: 950px;
+        background-position: 
+            center bottom,  /* heroIMG*/
+            center bottom;  /* heroBG*/
+    }
+    .heroGT_text{
+        width: 100%;
+    }
+    .onlineGroup_list{
+        align-items: start;
+    }
+    .onlineGroup_text, .onlineGroup_item{
+        width: 100%;
+    } 
+}
+
+@media (min-width: 360px) and (max-width: 767px) {
+    .heroGT {
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        padding: 40px 20px;
+        height: 530px;
+        background-position: center bottom;  /* heroBG*/
+        background-size: 100% 350px;          /* heroBG остается на весь экран */
+    }
+    .heroGT_text{
+        width: 100%;
+    }
+    .detocs_descriptions{
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+    .onlineGroup_list{
+        align-items: start;
+    }
+    .onlineGroup_text, .onlineGroup_item{
+        width: 100%;
+    } 
+    .onlineGroup_text_head{
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+    .onlineGroup_text_item{
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
+}
