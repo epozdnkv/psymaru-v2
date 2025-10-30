@@ -365,9 +365,39 @@ const App = {
     hideTooltip() {
       this.isTooltipVisible = false;
     },
+    updateTooltipPosition() {
+      if (this.targetElement && this.isTooltipVisible) {
+        const rect = this.targetElement.getBoundingClientRect();
+        const isDesktop = window.innerWidth >= 768;
+        
+        if (isDesktop) {
+          this.tooltipStyle = {
+            left: (rect.right + 10) + 'px',
+            top: (rect.top + window.scrollY + (rect.height / 2)) + 'px',
+            transform: 'translateY(-50%)'
+          };
+        } else {
+          this.tooltipStyle = {
+            left: (rect.left + window.scrollX + (rect.width / 2)) + 'px',
+            top: (rect.bottom + window.scrollY + 10) + 'px',
+            transform: 'translateX(-50%)'
+          };
+        }
+      }
+    },
+    
+    handleScroll() {
+      if (window.innerWidth < 768 && this.isTooltipVisible) {
+        // На мобильных скрываем при скролле
+        this.hideTooltip();
+      } else if (window.innerWidth >= 768 && this.isTooltipVisible) {
+        // На десктопах обновляем позицию
+        this.updateTooltipPosition();
+      }
+    },
+    
     handleResize() {
       if (this.isTooltipVisible) {
-        // При изменении размера окна скрываем тултип
         this.hideTooltip();
       }
     }
@@ -399,13 +429,14 @@ const App = {
       }
     });
     //Тултип
+    window.addEventListener('scroll', this.handleScroll, { passive: true });
     window.addEventListener('resize', this.handleResize);
   },
    beforeUnmount() {
     // Убедимся, что скролл включен при размонтировании компонента
     this.enableBodyScroll();
-    window.removeEventListener('resize', this.handleResize);
+    window.addEventListener('scroll', this.handleScroll, { passive: true });
+    window.addEventListener('resize', this.handleResize);
   }
 };
 Vue.createApp(App).mount("#app");
-
