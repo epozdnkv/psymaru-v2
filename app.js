@@ -364,6 +364,12 @@ const App = {
     
     hideTooltip() {
       this.isTooltipVisible = false;
+    },
+    handleResize() {
+      if (this.isTooltipVisible) {
+        // При изменении размера окна скрываем тултип
+        this.hideTooltip();
+      }
     }
   },
   mounted() {
@@ -402,3 +408,4 @@ const App = {
   }
 };
 Vue.createApp(App).mount("#app");
+
