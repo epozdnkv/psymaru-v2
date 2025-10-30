@@ -6,6 +6,14 @@ const App = {
       isImageModalOpen: false,
       isMobileMenuOpen: false,
       currentImage: '',
+      /*Тултипы*/
+      isTooltipVisible: false,
+      tooltipText: '',
+      tooltipStyle: {
+        left: '100px',  // Фиксированная позиция для теста
+        top: '100px'
+      },
+      /*Тултипы*/
       documents: [
         {
           image: "src/img/docs/1.webp",
@@ -323,8 +331,40 @@ const App = {
       this.isMobileMenuOpen = false;
       document.body.classList.remove('mobile-menu-open');
       document.body.style.overflow = '';
-    }
+    },
     //Бургер меню
+
+    showTooltip(text, event) {
+      this.tooltipText = text;
+      this.isTooltipVisible = true;
+      
+      this.$nextTick(() => {
+        if (event && event.target) {
+          const rect = event.target.getBoundingClientRect();
+          const isDesktop = window.innerWidth >= 768;
+          
+          if (isDesktop) {
+            // Справа на десктопе
+            this.tooltipStyle = {
+              left: (rect.right + 10) + 'px',
+              top: (rect.top + (rect.height / 2)) + 'px',
+              transform: 'translateY(-50%)'
+            };
+          } else {
+            // Снизу на мобильных
+            this.tooltipStyle = {
+              left: (rect.left + (rect.width / 2)) + 'px',
+              top: (rect.bottom + 10) + 'px',
+              transform: 'translateX(-50%)'
+            };
+          }
+        }
+      });
+    },
+    
+    hideTooltip() {
+      this.isTooltipVisible = false;
+    }
   },
   mounted() {
     // Закрытие модального окна по ESC
@@ -352,10 +392,13 @@ const App = {
         this.closeMobileMenu();
       }
     });
+    //Тултип
+    window.addEventListener('resize', this.handleResize);
   },
    beforeUnmount() {
     // Убедимся, что скролл включен при размонтировании компонента
     this.enableBodyScroll();
+    window.removeEventListener('resize', this.handleResize);
   }
 };
 Vue.createApp(App).mount("#app");

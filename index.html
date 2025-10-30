@@ -145,9 +145,33 @@
                 <div class="about_text_maps">
                     <h3 class="about_maps_head about_two">Методы работы</h3>
                     <ul class="about_maps_items">
-                        <li class="about_maps_item">гештальт терапия</li>
-                        <li class="about_maps_item">EMDR (ДПДГ)</li>
-                        <li class="about_maps_item">арт-терапия</li>
+                        <li class="about_maps_item">
+                            <span 
+                                class="tooltip-text"
+                                @mouseenter="showTooltip('это направление психотерапии, которое помогает человеку сделать свою жизнь более комфортной и яркой, осознать связь мыслей с телом и чувствами и жить в настоящем', $event)"
+                                @mouseleave="hideTooltip"
+                            >
+                                гештальт терапия
+                            </span>
+                        </li>
+                        <li class="about_maps_item">
+                            <span 
+                                class="tooltip-text"
+                                @mouseenter="showTooltip('Основа метода — билатеральная стимуляция: попеременная активация правого и левого полушарий мозга. Чаще всего это движения глаз влево-вправо, но можно использовать звуки или прикосновения', $event)"
+                                @mouseleave="hideTooltip"
+                            >
+                                EMDR (ДПДГ)
+                            </span>
+                        </li>
+                        <li class="about_maps_item">
+                            <span 
+                                class="tooltip-text"
+                                @mouseenter="showTooltip('это способ избавиться от лишних переживаний с помощью занятий изобразительным искусством', $event)"
+                                @mouseleave="hideTooltip"
+                            >
+                                арт-терапия
+                            </span>
+                        </li>
                     </ul>
                 </div>
                 <a href="javascript:void(0)" class="about_text_btn btn" @click="openModal" role="button">Посмотреть документы</a>
@@ -300,7 +324,17 @@
             <img :src="currentImage" alt="Увеличенное изображение" class="image-modal__img">
         </div>
     </div>
-
+    <!-- Тултип В САМОМ КОНЦЕ body, перед закрывающим тегом -->
+    <div 
+        class="tooltip" 
+        :class="{ 'tooltip--active': isTooltipVisible }"
+        :style="tooltipStyle"
+        v-if="isTooltipVisible"
+    >
+        <div class="tooltip__content">
+            {{ tooltipText }}
+        </div>
+    </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="app.js"></script>
 </body>

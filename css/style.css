@@ -245,6 +245,11 @@ header{
     color: var(--blackColor);
     opacity: 80%;
 }
+.ami_flex{
+    display: flex;
+    align-items: center;
+    display: inline-flex;
+}
 .about_img {
     width: 50%;
     height: auto;
@@ -738,7 +743,7 @@ body.modal-open {
     align-items: center;
     width: 65px;
     height: 65px;
-    background: var(--lorangeColor);
+    background: var(--blackColor);
     border: none;
     border-radius: 16px;
     cursor: pointer;
@@ -749,7 +754,7 @@ body.modal-open {
 }
 
 .burger-btn:hover {
-    background: var(--dorangeColor);
+    background: var(--lorangeColor);
 }
 
 .burger-line {
@@ -1328,5 +1333,89 @@ body.mobile-menu-open {
     
     .btnMenu {
         display: flex;
+    }
+}
+
+
+/* БАЗОВЫЕ СТИЛИ ТУЛТИПА - ТОЧНО РАБОТАЮТ */
+/* Стили для тултипа с хвостиком */
+.tooltip-text {
+    cursor: help;
+    border-bottom: 1px dotted var(--blackColor);
+    padding-bottom: 1px;
+    transition: all 0.3s ease;
+}
+
+.tooltip-text:hover {
+    color: var(--lorangeColor);
+    border-bottom-color: var(--lorangeColor);
+}
+
+.tooltip {
+    position: fixed;
+    background: var(--whiteColor);
+    color: var(--blackColor);
+    padding: 20px;
+    border-radius: 12px;
+    font: 400 14px 'Inter';
+    line-height: 1.5;
+    max-width: 300px;
+    z-index: 10000;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #f0f0f0;
+}
+
+.tooltip--active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Хвостик тултипа */
+.tooltip::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: var(--whiteColor);
+    transform: rotate(45deg);
+    border: 1px solid #f0f0f0;
+    z-index: -1;
+}
+
+/* Десктопы - тултип справа с хвостиком слева */
+@media (min-width: 768px) {
+    .tooltip {
+        transform: translateY(-50%);
+        margin-left: 8px;
+    }
+    
+    .tooltip::before {
+        left: -8px;
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+        border-right: none;
+        border-bottom: none;
+    }
+}
+
+/* Мобильные - тултип снизу с хвостиком сверху */
+@media (max-width: 767px) {
+    .tooltip {
+        transform: translateX(-50%);
+        margin-top: 8px;
+    }
+    
+    .tooltip::before {
+        left: 50%;
+        top: -8px;
+        transform: translateX(-50%) rotate(45deg);
+        border-left: none;
+        border-top: none;
     }
 }
