@@ -353,7 +353,7 @@ const App = {
           } else {
             // Снизу на мобильных
             this.tooltipStyle = {
-              left: (rect.left + (rect.width / 2)) + 'px',
+              left: (rect.left + (rect.width + 10 / 2)) + 'px',
               top: (rect.bottom + 10) + 'px',
               transform: 'translateX(-50%)'
             };
@@ -440,3 +440,4 @@ const App = {
   }
 };
 Vue.createApp(App).mount("#app");
+
