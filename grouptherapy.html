@@ -2,9 +2,20 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Психолог в Пятигорске Мария Компанцева| Консультация психолога в Пятигорске</title>
-    <meta name="description" content="Психолог Пятигорск окажет грамотную помощь. Консультация и услуги опытного семейного психолога. Запись на прием к психологу проводится ежедневно. Психолог в Пятигорске поможет найти проблему и решить ее">
-    <meta name="keywords" content="Мария Компанцева, консультация психолога, психолог в пятигорске, решение проблем, причина проблем, психолог с опытом, интуитивное консультирование, психологическое консультирование, психолог пятигорск, психолог КМВ, психолог Ессентуки, детский психолог, борьба с депрессией, психолог, семейный психолог в пятигорске, помощь психолога, психолог в Пятигорске консультация, оказание услуг психологом, помощь семейного психолога Москвы, записаться на прием к психологу, самый лучший хороший семейный психолог">
+    <title>Групповая терапия в Пятигорске — терапевтические группы | Мария Позднякова</title>
+    <meta name="description" content="Офлайн и онлайн группы: психологический детокс и группа про жизнь. Поддержка, навыки общения, эмоциональная регуляция. Запись на участие.">
+    <link rel="canonical" href="https://психологпятигорск.рф/grouptherapy.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:title" content="Групповая терапия в Пятигорске — терапевтические группы">
+    <meta property="og:description" content="Офлайн психологический детокс и онлайн группа. Ведущая — Мария Позднякова.">
+    <meta property="og:url" content="https://психологпятигорск.рф/grouptherapy.html">
+    <meta property="og:image" content="/src/img/groupTherapyIMG.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="manifest" href="src/site.webmanifest">
+    <meta name="theme-color" content="#1E1E1E">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/styleGT.css">
@@ -13,10 +24,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
 </head>
-<body class = "noselect" id = "app">
+<body id = "app">
     <header role="navigation">
         <!-- Бургер кнопка -->
-        <button class="burger-btn" @click="toggleMobileMenu">
+        <button class="burger-btn" @click="toggleMobileMenu" aria-controls="mobile-menu" :aria-expanded="isMobileMenuOpen ? 'true' : 'false'" aria-label="Открыть меню">
             <span class="burger-line"></span>
             <span class="burger-line"></span>
             <span class="burger-line"></span>
@@ -24,21 +35,21 @@
         
         <div class="menu" role="navigation">
             <ul class="menu_list">
-                <li class="menu_item"><a href="index.html#about" role="button">Обо мне</a></li>
-                <li class="menu_item"><a href="index.html#consult" role="button">Услуги</a></li>
-                <li class="menu_item"><a href="#" role="button">Групповая терапия</a></li>
-                <li class="menu_item"><a href="index.html#faq" role="button">Вопросы</a></li>
-                <li class="menu_item"><a href="#contacts" role="button">Контакты</a></li>
+                <li class="menu_item"><a href="index.html#about">Обо мне</a></li>
+                <li class="menu_item"><a href="index.html#consult">Услуги</a></li>
+                <li class="menu_item"><a href="#">Групповая терапия</a></li>
+                <li class="menu_item"><a href="index.html#faq">Вопросы</a></li>
+                <li class="menu_item"><a href="#contacts">Контакты</a></li>
             </ul>
         </div>
         <div class="btnMenu">
-            <img src="src/whatsapp.svg" alt="" class="btnMenu_img" role="button">
-            <a href="index.html#card" class="btnMenu_item btn" role="button">Карта дня</a>
+            <a href="https://clck.ru/3Q7BVx" rel="noopener noreferrer" aria-label="Связаться в WhatsApp"><img src="src/whatsapp.svg" alt="WhatsApp" class="btnMenu_img"></a>
+            <a href="index.html#card" class="btnMenu_item btn">Карта дня</a>
         </div>
     </header>
 
     <!-- Мобильное меню -->
-    <div class="mobile-menu" :class="{ 'mobile-menu--active': isMobileMenuOpen }" role="navigation">
+    <div id="mobile-menu" class="mobile-menu" :class="{ 'mobile-menu--active': isMobileMenuOpen }" role="navigation">
         <div class="mobile-menu__overlay" @click="closeMobileMenu"></div>
         <div class="mobile-menu__content">
             <button class="mobile-menu__close" @click="closeMobileMenu">
@@ -50,27 +61,27 @@
             <nav class="mobile-nav">
                 <ul class="mobile-nav__list">
                     <li class="mobile-nav__item">
-                        <a href="index.html#about" class="mobile-nav__link" @click="closeMobileMenu" role="button">
+                        <a href="index.html#about" class="mobile-nav__link" @click="closeMobileMenu">
                             <span class="mobile-nav__text">Обо мне</span>
                         </a>
                     </li>
                     <li class="mobile-nav__item">
-                        <a href="index.html#consult" class="mobile-nav__link" @click="closeMobileMenu" role="button">
+                        <a href="index.html#consult" class="mobile-nav__link" @click="closeMobileMenu">
                             <span class="mobile-nav__text">Услуги</span>
                         </a>
                     </li>
                     <li class="mobile-nav__item">
-                        <a href="#" class="mobile-nav__link" @click="closeMobileMenu" role="button">
+                        <a href="#" class="mobile-nav__link" @click="closeMobileMenu">
                             <span class="mobile-nav__text">Групповая терапия</span>
                         </a>
                     </li>
                     <li class="mobile-nav__item">
-                        <a href="index.html#faq" class="mobile-nav__link" @click="closeMobileMenu" role="button">
+                        <a href="index.html#faq" class="mobile-nav__link" @click="closeMobileMenu">
                             <span class="mobile-nav__text">Вопросы</span>
                         </a>
                     </li>
                     <li class="mobile-nav__item">
-                        <a href="#contacts" class="mobile-nav__link" @click="closeMobileMenu" role="button">
+                        <a href="#contacts" class="mobile-nav__link" @click="closeMobileMenu">
                             <span class="mobile-nav__text">Контакты</span>
                         </a>
                     </li>
@@ -85,7 +96,7 @@
             <h2 class="hero_header heroGT_header">Терапевтическая<br>группа</h2>
             <h1 class="hero_description heroGT_description">Это групповое занятие, где участники собираются вместе чтобы поддерживать друг друга и работать над своими эмоциональными проблемами или трудностями</h1>
         </div>
-        <img src="" alt="" class="hero_img">
+        <img src="" alt="" class="hero_img" loading="lazy" decoding="async">
     </section>   
     
     <section class="detocs" id="detocs">
@@ -101,7 +112,7 @@
                     <li class="detocs_desc_item consult_desc_item">По пятницам</li>
                     <li class="detocs_desc_item consult_desc_item">180 минут</li>
                 </ul>
-                <a href="" class="consult_btn detocs_btn btn" role="button">Записаться&#8195;→</a>
+                <a href="https://clck.ru/3Q7Bi4" class="consult_btn detocs_btn btn" rel="noopener noreferrer">Записаться&#8195;→</a>
             </div>
             <div class="detocs_item consult_item">
                 <h3 class="detocs_item_head consult_item_head">Пакет встреч в группе</h3>
@@ -111,7 +122,7 @@
                     <li class="detocs_desc_item consult_desc_item">По пятницам</li>
                     <li class="detocs_desc_item consult_desc_item">4 встречи по 180 минут</li>
                 </ul>
-                <a href="" class="consult_btn detocs_btn btn" role="button">Записаться&#8195;→</a>
+                <a href="https://clck.ru/3Q7Bi4" class="consult_btn detocs_btn btn" rel="noopener noreferrer">Записаться&#8195;→</a>
             </div>
         </div>
     </section>
@@ -136,7 +147,7 @@
                     <li class="onlineGroup_desc_item consult_desc_item">Онлайн</li>
                     <li class="onlineGroup_desc_item consult_desc_item">60 минут</li>
                 </ul>
-                <a href="" class="consult_btn onlineGroup_btn btn" role="button">Записаться&#8195;→</a>
+                <a href="https://clck.ru/3Q7BgG" class="consult_btn onlineGroup_btn btn" rel="noopener noreferrer">Записаться&#8195;→</a>
             </div>
         </div>
     </section>
@@ -148,16 +159,16 @@
                 </h2>
                 <div class="contactsFlex">
                     <div class="maps">
-                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A0cac4d849df5c4c825b478a52aa4ffcc95b74deef86d537bbda5214601d46da3&amp;source=constructor" width="650" height="435" frameborder="0" class="maps" role="application" title="Психолог Пятигорск"></iframe>
+                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A0cac4d849df5c4c825b478a52aa4ffcc95b74deef86d537bbda5214601d46da3&amp;source=constructor" width="650" height="435" frameborder="0" class="maps" role="application" title="Психолог Пятигорск" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <ul class="contacts__list">
                         <li class="contacts__item">
                             <p class="contacts__head">Телефон</p>
-                            <p class="contacts__desc">+7 961 447 56 36</p>
+                            <p class="contacts__desc"><a href="tel:+79614475636">+7 961 447 56 36</a></p>
                         </li>
                         <li class="contacts__item">
                             <p class="contacts__head">Электронная почта</p>
-                            <p class="contacts__desc">psymaru@yandex.ru</p>
+                            <p class="contacts__desc"><a href="mailto:psymaru@yandex.ru">psymaru@yandex.ru</a></p>
                         </li>
                         <li class="contacts__item">
                             <p class="contacts__head">Адрес</p>
@@ -181,7 +192,7 @@
             <div class="modal__body">
                 <div class="documents-vertical">
                     <div class="document-vertical-item" v-for="(doc, index) in documents" :key="index">
-                        <img :src="doc.image" :alt="doc.title" class="document-vertical-img" @click="openImage(doc.image)">
+                        <img :src="doc.image" :alt="doc.title" class="document-vertical-img" @click="openImage(doc.image)" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>
@@ -197,11 +208,11 @@
                     <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </button>
-            <img :src="currentImage" alt="Увеличенное изображение" class="image-modal__img">
+            <img :src="currentImage" alt="Увеличенное изображение" class="image-modal__img" decoding="async">
         </div>
     </div>
 
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="app.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" defer></script>
+    <script src="app.js" defer></script>
 </body>
 </html>

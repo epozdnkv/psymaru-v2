@@ -17,7 +17,7 @@
     --dorangeColor: #F16A41;
     --lorangeColor: #F97E16;
     --dvioletColor: #9FA0F1;
-    --lvioletColor: #D8BFFF;
+    --lvioletColor: #BAA1E1;
 
     --bgColor: #f9f9f9;
     --fHeaderFontSize: 60px;
@@ -65,6 +65,10 @@ section{
     margin: 32px auto 0px auto;
     padding: 70px 170px;
 }
+.consult, .groupTherapy, .faq, .card, .contacts{
+    content-visibility: auto;
+    contain-intrinsic-size: 1000px;
+}
 .mobbtn{
     display: none;
 }
@@ -83,14 +87,13 @@ section{
 header{
     display: flex;
     gap: 30px;
-    justify-content: space-between; /* Выравнивание по центру по горизонтали */
     align-items: center; /* Выравнивание по центру по вертикали */
     width: 1568px; /* Занимает всю ширину */
     margin: 32px auto 0px auto;
 }
 .menu {
     background-color: var(--bgColor);
-    padding: 20px 170px 20px 170px;
+    padding: 20px 40px 20px 170px;
     border-radius: 56px;
 }
 .menu_list {
@@ -132,7 +135,10 @@ header{
         calc(100% - 310px) bottom,  /* heroIMG: 310px от правого края */
         bottom right;                /* heroBG: в правом нижнем углу */
     height: 580px;
+    position: relative;
 }
+    
+
 .hero_header {
     font-weight: 700;
     font-size: 64px;
@@ -152,11 +158,22 @@ header{
 .hero_btn:hover, .consult_btn:hover{
     background-color: var(--dorangeColor);
 }
+
 .hero_text, .hero_img{
     flex: 1 1 50%;
     box-sizing: border-box;
     object-fit: cover;
     width: 50%; /* Явно указываем ширину */
+}
+
+
+.hero_bage{
+    position: absolute;
+    top: 160px;
+    right: 170px;
+    color: var(--dvioletColor);
+    font: 500 16px 'Unbounded';
+    width: 240px;
 }
 
 /* С чем работаю*/
@@ -190,11 +207,22 @@ header{
     font-size: 40px;
     margin-bottom: 32px;
 }
-.work_maps_item{
-    list-style: outside !important;
+
+.work_maps_item {
+    position: relative;
+    padding-left: 1.5em; /* Место для кастомного маркера */
     margin-bottom: 24px;
     font: 400 20px 'Inter';
+    text-align: left; /* Текст выровнен как при inside */
 }
+
+.work_maps_item::before {
+    content: "•"; /* Ваш маркер */
+    position: absolute;
+    left: 0;
+    /* Маркер позиционируется как при outside */
+}
+
 .work_maps_num{
     font: 700 128px 'Unbounded';
     opacity: 20%;
@@ -250,16 +278,37 @@ header{
     align-items: center;
     display: inline-flex;
 }
+
 .about_img {
     width: 50%;
     height: auto;
     border-radius: 48px;
+    border: 1px solid #e7e7e7;
+    background-color: var(--whiteColor);
+    background-image:
+        url("../src/img/aboutBG1.svg"),
+        url("../src/img/aboutBG2.svg");
+    background-repeat: no-repeat;
+    background-position: 
+        top left,
+        bottom right;
+    text-align: center;
+    position: relative !important;
 }
 .about_text_btn {
     text-align: center; /* Горизонтальное центрирование текста */
     display: flex; /* Используем flexbox */
     justify-content: center; /* Горизонтальное центрирование */
     align-items: center; /* Вертикальное центрирование */
+}
+
+.about_bage{
+    position: absolute;
+    top: 140px;
+    right: 10px;
+    color: var(--dvioletColor);
+    font: 500 16px 'Unbounded';
+    width: 180px;
 }
 
 /* Индивидуальная консультация*/
@@ -370,14 +419,24 @@ header{
     height: 736px;
 }
 .card_description_item{
+    position: relative;
+    padding-left: 1.5em; /* Место для кастомного маркера */
     font: 400 24px 'Inter';
-    list-style: outside;
+    text-align: left; /* Текст выровнен как при inside */
     opacity: 80%;
     line-height: 1;
 }
 .card_description_item:not(:last-child){
     padding-bottom: 32px;
 }
+
+.card_description_item::before {
+    content: "•"; /* Ваш маркер */
+    position: absolute;
+    left: 0;
+    /* Маркер позиционируется как при outside */
+}
+
 .work_header{
     font: 700 40px 'Inter';
     margin-bottom: 24px;
@@ -478,10 +537,21 @@ header{
     opacity: 0.8;
 }
 .faq_description_item{
-    list-style: outside;
+    position: relative;
+    text-align: left; /* Текст выровнен как при inside */
+    padding-left: 1.5em; /* Место для кастомного маркера */
     opacity: 80%;
     line-height: 1.5;
 }
+
+.faq_description_item::before {
+    content: "•"; /* Ваш маркер */
+    position: absolute;
+    left: 0;
+    /* Маркер позиционируется как при outside */
+}
+
+
 /* Модальное окно */
 .modal {
     position: fixed;
@@ -941,9 +1011,8 @@ body.mobile-menu-open {
             calc(100% - 165px) bottom,  /* heroIMG: 310px от правого края */
             calc(100% + 165px) bottom;  /* heroBG: в правом нижнем углу */
     }
-    
-    .hero_description {
-        margin-bottom: 48px;
+    .hero_bage{
+        right: 30px;
     }
     
     /* FAQ специфичные стили */
@@ -981,6 +1050,14 @@ body.mobile-menu-open {
             calc(100% - 40px) bottom,  /* heroIMG: 310px от правого края */
             calc(100% + 240px) bottom;  /* heroBG: в правом нижнем углу */
     }
+    .hero_description{
+        margin-bottom: 25px;
+    }
+    .hero_bage{
+        position: static;
+        width: 100%;
+        margin-bottom: 25px;
+    }   
     .hero_btn {
         padding: 20px 40px;
         font-size: 20px;
@@ -1010,6 +1087,11 @@ body.mobile-menu-open {
     
     .btnMenu {
         display: flex;
+    }
+    .about_bage{
+        right: 0px;
+        text-align: left;
+        width: 130px;
     }
 }
 
@@ -1042,6 +1124,12 @@ body.mobile-menu-open {
             center bottom,  /* heroIMG*/
             center bottom;  /* heroBG*/
     }
+    .hero_bage{
+        position: absolute;
+        right: 32px !important;
+        top: 520px !important;
+    }
+
     .hero_header {
         margin-bottom: 24px;
     }
@@ -1157,7 +1245,12 @@ body.mobile-menu-open {
             210px auto,     /* Уменьшаем размер heroIMG */
             100% 320px;          /* heroBG остается на весь экран */
     }
-    
+    .hero_bage{
+        font-size: 12px;
+        width: 130px;
+        right: 20px;
+        top: 275px;
+    }
     .hero_text {
         width: 100%;
         order: 1;
@@ -1384,7 +1477,8 @@ body.mobile-menu-open {
     height: 16px;
     background: var(--whiteColor);
     transform: rotate(45deg);
-    border: 1px solid #f0f0f0;
+    border-right: 1px solid #f0f0f0;
+    border-left: 1px solid #f0f0f0;
     z-index: -1;
 }
 
@@ -1419,3 +1513,7 @@ body.mobile-menu-open {
         border-top: none;
     }
 }
+
+
+
+

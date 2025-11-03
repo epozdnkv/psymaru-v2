@@ -32,7 +32,7 @@ const App = {
         {
           question: 'Как понять, что мне нужна помощь психолога?',
           answer: `<p>О том, что вам стоит обратиться к психологу могут сообщать следующие признаки:</p>
-                  <br><ul>
+                  <ul>
                     <li class="faq_description_item">Вы постоянно чувствуете тревогу, апатию или грусть, и это состояние не проходит.</li>
                     <li class="faq_description_item">Вы пережили стрессовую ситуацию (потеря работы, расставание, травма) и не можете справиться с чувствами.</li>
                     <li class="faq_description_item">У вас проблемы со сном, аппетитом, или вы чувствуете постоянное физическое напряжение.</li>
@@ -403,22 +403,19 @@ const App = {
     }
   },
   mounted() {
-    // Закрытие модального окна по ESC
-    document.addEventListener('keydown', (e) => {
+    // Закрытие модальных окон и меню по ESC
+    this._onKeydown = (e) => {
       if (e.key === 'Escape') {
         if (this.isImageModalOpen) {
           this.closeImageModal();
         } else if (this.isModalOpen) {
           this.closeModal();
+        } else if (this.isMobileMenuOpen) {
+          this.closeMobileMenu();
         }
       }
-    });
-     // Закрытие по ESC
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && this.isMobileMenuOpen) {
-        this.closeMobileMenu();
-      }
-    });
+    };
+    document.addEventListener('keydown', this._onKeydown);
     
     // Закрытие при клике вне меню
     document.addEventListener('click', (e) => {
@@ -435,9 +432,11 @@ const App = {
    beforeUnmount() {
     // Убедимся, что скролл включен при размонтировании компонента
     this.enableBodyScroll();
-    window.addEventListener('scroll', this.handleScroll, { passive: true });
-    window.addEventListener('resize', this.handleResize);
+    window.removeEventListener('scroll', this.handleScroll, { passive: true });
+    window.removeEventListener('resize', this.handleResize);
+    if (this._onKeydown) {
+      document.removeEventListener('keydown', this._onKeydown);
+    }
   }
 };
 Vue.createApp(App).mount("#app");
-

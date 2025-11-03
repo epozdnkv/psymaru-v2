@@ -2,20 +2,31 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Психолог в Пятигорске Мария Компанцева| Консультация психолога в Пятигорске</title>
-    <meta name="description" content="Психолог Пятигорск окажет грамотную помощь. Консультация и услуги опытного семейного психолога. Запись на прием к психологу проводится ежедневно. Психолог в Пятигорске поможет найти проблему и решить ее">
-    <meta name="keywords" content="Мария Компанцева, консультация психолога, психолог в пятигорске, решение проблем, причина проблем, психолог с опытом, интуитивное консультирование, психологическое консультирование, психолог пятигорск, психолог КМВ, психолог Ессентуки, детский психолог, борьба с депрессией, психолог, семейный психолог в пятигорске, помощь психолога, психолог в Пятигорске консультация, оказание услуг психологом, помощь семейного психолога Москвы, записаться на прием к психологу, самый лучший хороший семейный психолог">
+    <title>Психолог в Пятигорске — Мария Позднякова | Гештальт‑терапевт</title>
+    <meta name="description" content="Индивидуальные консультации психолога в Пятигорске и онлайн. Гештальт, EMDR, арт‑терапия. Бережная поддержка, запись на консультацию.">
+    <link rel="canonical" href="https://психологпятигорск.рф/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:title" content="Психолог в Пятигорске — Мария Позднякова, гештальт‑терапевт">
+    <meta property="og:description" content="Индивидуальные консультации офлайн и онлайн. Гештальт‑подход, EMDR, арт‑терапия. Записаться на консультацию.">
+    <meta property="og:url" content="https://психологпятигорск.рф/">
+    <meta property="og:image" content="/src/img/hero.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="manifest" href="src/site.webmanifest">
+    <meta name="theme-color" content="#1E1E1E">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="src/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="src/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=check" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
 </head>
-<body class = "noselect" id = "app">
+<body id = "app">
     <header role="navigation">
         <!-- Бургер кнопка -->
-        <button class="burger-btn" @click="toggleMobileMenu">
+        <button class="burger-btn" @click="toggleMobileMenu" aria-controls="mobile-menu" :aria-expanded="isMobileMenuOpen ? 'true' : 'false'" aria-label="Открыть меню">
             <span class="burger-line"></span>
             <span class="burger-line"></span>
             <span class="burger-line"></span>
@@ -23,21 +34,21 @@
         
         <div class="menu" role="navigation">
             <ul class="menu_list">
-                <li class="menu_item"><a href="#about" role="button">Обо мне</a></li>
-                <li class="menu_item"><a href="#consult" role="button">Услуги</a></li>
-                <li class="menu_item"><a href="#group" role="button">Групповая терапия</a></li>
-                <li class="menu_item"><a href="#faq" role="button">Вопросы</a></li>
-                <li class="menu_item"><a href="#contacts" role="button">Контакты</a></li>
+                <li class="menu_item"><a href="#about">Обо мне</a></li>
+                <li class="menu_item"><a href="#consult">Услуги</a></li>
+                <li class="menu_item"><a href="#group">Групповая терапия</a></li>
+                <li class="menu_item"><a href="#faq">Вопросы</a></li>
+                <li class="menu_item"><a href="#contacts">Контакты</a></li>
             </ul>
         </div>
         <div class="btnMenu">
-            <img src="src/whatsapp.svg" alt="" class="btnMenu_img" role="button">
-            <a href="#card" class="btnMenu_item btn" role="button">Карта дня</a>
+            <a href="https://clck.ru/3Q7BVx" rel="noopener noreferrer" aria-label="Связаться в WhatsApp"><img src="src/whatsapp.svg" alt="WhatsApp" class="btnMenu_img"></a>
+            
+            <a href="#card" class="btnMenu_item btn">Карта дня</a>
         </div>
     </header>
-
     <!-- Мобильное меню -->
-    <div class="mobile-menu" :class="{ 'mobile-menu--active': isMobileMenuOpen }" role="navigation">
+    <div id="mobile-menu" class="mobile-menu" :class="{ 'mobile-menu--active': isMobileMenuOpen }" role="navigation">
         <div class="mobile-menu__overlay" @click="closeMobileMenu"></div>
         <div class="mobile-menu__content">
             <button class="mobile-menu__close" @click="closeMobileMenu">
@@ -49,27 +60,27 @@
             <nav class="mobile-nav">
                 <ul class="mobile-nav__list">
                     <li class="mobile-nav__item">
-                        <a href="#about" class="mobile-nav__link" @click="closeMobileMenu" role="button">
+                        <a href="#about" class="mobile-nav__link" @click="closeMobileMenu">
                             <span class="mobile-nav__text">Обо мне</span>
                         </a>
                     </li>
                     <li class="mobile-nav__item">
-                        <a href="#consult" class="mobile-nav__link" @click="closeMobileMenu" role="button">
+                        <a href="#consult" class="mobile-nav__link" @click="closeMobileMenu">
                             <span class="mobile-nav__text">Услуги</span>
                         </a>
                     </li>
                     <li class="mobile-nav__item">
-                        <a href="#group" class="mobile-nav__link" @click="closeMobileMenu" role="button">
+                        <a href="#group" class="mobile-nav__link" @click="closeMobileMenu">
                             <span class="mobile-nav__text">Групповая терапия</span>
                         </a>
                     </li>
                     <li class="mobile-nav__item">
-                        <a href="#faq" class="mobile-nav__link" @click="closeMobileMenu" role="button">
+                        <a href="#faq" class="mobile-nav__link" @click="closeMobileMenu">
                             <span class="mobile-nav__text">Вопросы</span>
                         </a>
                     </li>
                     <li class="mobile-nav__item">
-                        <a href="#contacts" class="mobile-nav__link" @click="closeMobileMenu" role="button">
+                        <a href="#contacts" class="mobile-nav__link" @click="closeMobileMenu">
                             <span class="mobile-nav__text">Контакты</span>
                         </a>
                     </li>
@@ -77,15 +88,18 @@
             </nav>
         </div>
     </div>
+
     <main role="main">
     <section class="hero section">
         <div class="hero_text">
-            <h2 class="hero_header">Мария<br>Позднякова</h2>
-            <h1 class="hero_description">Психолог гештальт-терапевт</h1>
-            <a href="" class="hero_btn btn descbtn" role="button">Записаться на консультацию&#8195;→</a>
-            <a href="" class="hero_btn btn mobbtn" role="button">Записаться&#8195;→</a>
+            <h1 class="hero_header">Психолог в Пятигорске — Мария Позднякова</h1>
+            <h2 class="hero_description">Гештальт‑терапевт, индивидуальные консультации офлайн и онлайн</h2>
+            <div class="hero_bage">[cо мной вам будет свободно и безопасно]</div>
+            <a href="https://clck.ru/3Q7BVx" class="hero_btn btn descbtn" rel="noopener noreferrer">Записаться на консультацию&#8195;→</a>
+            <a href="https://clck.ru/3Q7BVx" class="hero_btn btn mobbtn" rel="noopener noreferrer">Записаться&#8195;→</a>
         </div>
-        <img src="" alt="" class="hero_img">
+        <div class="hero_img"> </div>
+        
     </section>
 
     <section class="work">  
@@ -174,9 +188,12 @@
                         </li>
                     </ul>
                 </div>
-                <a href="javascript:void(0)" class="about_text_btn btn" @click="openModal" role="button">Посмотреть документы</a>
+                <a href="javascript:void(0)" class="about_text_btn btn" @click="openModal">Посмотреть документы</a>
             </div>
-            <img src="src/img/aboutIMG.png" alt="" class="about_img">
+            <div class="about_img">
+                <img src="src/img/aboutIMG.png" alt="Мария Позднякова — психолог" width="440" height="660" loading="lazy" decoding="async" style="height: 660px; width: auto; display: inline-block;">
+                <div class="about_bage">[практикую более 7 лет]</div>
+            </div>  
         </div>
     </section>
     
@@ -190,7 +207,7 @@
                     <li class="consult_desc_item">Очно или онлайн</li>
                     <li class="consult_desc_item">60 минут</li>
                 </ul>
-                <a href="" class="consult_btn btn" role="button">Записаться&#8195;→</a>
+                <a href="https://clck.ru/3Q7BVx" class="consult_btn btn" rel="noopener noreferrer">Записаться&#8195;→</a>
             </div>
             <div class="consult_item">
                 <h3 class="consult_item_head">Пакет консультаций</h3>
@@ -199,7 +216,7 @@
                     <li class="consult_desc_item">Очно или онлайн</li>
                     <li class="consult_desc_item">6 консультаций по 60 минут</li>
                 </ul>
-                <a href="" class="consult_btn btn" role="button">Записаться&#8195;→</a>
+                <a href="https://clck.ru/3Q7BVx" class="consult_btn btn" rel="noopener noreferrer">Записаться&#8195;→</a>
             </div>
         </div>
     </section>
@@ -207,11 +224,11 @@
     <section class="groupTherapy" id="group">
         <h2 class="groupTherapy_header section_head">Групповая терапия</h2>
         <div class="groupTherapy_desc">
-            <img src="src/img/groupTherapyIMG.webp" alt="" class="groupTherapy_img">
+            <img src="src/img/groupTherapyIMG.webp" alt="Групповая терапия — иллюстрация" class="groupTherapy_img" loading="lazy" decoding="async">
             <div class="groupTherapy_text">
                 <h3 class="groupTherapy_text_head">Терапевтическая группа</h3>
                 <p class="groupTherapy_text_desc">Это групповое занятие или сессия, где участники собираются вместе, чтобы поддерживать друг друга и работать над своими эмоциональными проблемами или трудностями. Целью такой группы является помощь людям в общении, улучшении решения проблем, развитии навыков эмоциональной регуляции и взаимной поддержке</p>
-                <a href="grouptherapy.html" class="groupTherapy_text_btn btn" role="button">Подробнее&#8195;→</a>
+                <a href="grouptherapy.html" class="groupTherapy_text_btn btn">Подробнее&#8195;→</a>
             </div>
         </div>
     </section>
@@ -257,9 +274,9 @@
                 <p class="card_desc work_desc" v-html="card[numRnd].description"></p>
             </div>
 
-            <div class="card_img" v-on:click="numRnd=getRandomInt(1,19)" role="button">
+            <div class="card_img" v-on:click="numRnd=getRandomInt(1,19)" role="button" aria-label="Показать новую карту дня" tabindex="0">
                 <img
-                    v-bind:src= "card[numRnd].path" alt="" class="card_item">
+                    v-bind:src= "card[numRnd].path" :alt="card[numRnd].name || 'Карта дня'" class="card_item" loading="lazy" decoding="async">
             </div>
             
         </div>
@@ -272,16 +289,16 @@
                 </h2>
                 <div class="contactsFlex">
                     <div class="maps">
-                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A0cac4d849df5c4c825b478a52aa4ffcc95b74deef86d537bbda5214601d46da3&amp;source=constructor" width="650" height="435" frameborder="0" class="maps" role="application" title="Психолог Пятигорск"></iframe>
+                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A0cac4d849df5c4c825b478a52aa4ffcc95b74deef86d537bbda5214601d46da3&amp;source=constructor" width="650" height="435" frameborder="0" class="maps" role="application" title="Психолог Пятигорск" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <ul class="contacts__list">
                         <li class="contacts__item">
                             <p class="contacts__head">Телефон</p>
-                            <p class="contacts__desc">+7 961 447 56 36</p>
+                            <p class="contacts__desc"><a href="tel:+79614475636">+7 961 447 56 36</a></p>
                         </li>
                         <li class="contacts__item">
                             <p class="contacts__head">Электронная почта</p>
-                            <p class="contacts__desc">psymaru@yandex.ru</p>
+                            <p class="contacts__desc"><a href="mailto:psymaru@yandex.ru">psymaru@yandex.ru</a></p>
                         </li>
                         <li class="contacts__item">
                             <p class="contacts__head">Адрес</p>
@@ -305,7 +322,7 @@
             <div class="modal__body">
                 <div class="documents-vertical">
                     <div class="document-vertical-item" v-for="(doc, index) in documents" :key="index">
-                        <img :src="doc.image" :alt="doc.title" class="document-vertical-img" @click="openImage(doc.image)">
+                        <img :src="doc.image" :alt="doc.title" class="document-vertical-img" @click="openImage(doc.image)" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>
@@ -321,7 +338,7 @@
                     <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </button>
-            <img :src="currentImage" alt="Увеличенное изображение" class="image-modal__img">
+            <img :src="currentImage" alt="Увеличенное изображение" class="image-modal__img" decoding="async">
         </div>
     </div>
     <!-- Тултип В САМОМ КОНЦЕ body, перед закрывающим тегом -->
@@ -335,7 +352,7 @@
             {{ tooltipText }}
         </div>
     </div>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="app.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" defer></script>
+    <script src="app.js" defer></script>
 </body>
 </html>

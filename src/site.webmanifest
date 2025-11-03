@@ -1,0 +1,13 @@
+{
+  "name": "Психолог Мария Позднякова",
+  "short_name": "Психолог",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#F16A41",
+  "background_color": "#ffffff"
+}
