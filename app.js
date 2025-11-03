@@ -13,6 +13,7 @@ const App = {
         left: '100px',  // Фиксированная позиция для теста
         top: '100px'
       },
+      targetElement: null,
       /*Тултипы*/
       documents: [
         {
@@ -337,10 +338,11 @@ const App = {
     showTooltip(text, event) {
       this.tooltipText = text;
       this.isTooltipVisible = true;
+      this.targetElement = event && event.currentTarget ? event.currentTarget : null;
       
       this.$nextTick(() => {
-        if (event && event.target) {
-          const rect = event.target.getBoundingClientRect();
+        if (this.targetElement) {
+          const rect = this.targetElement.getBoundingClientRect();
           const isDesktop = window.innerWidth >= 768;
           
           if (isDesktop) {
@@ -353,7 +355,7 @@ const App = {
           } else {
             // Снизу на мобильных
             this.tooltipStyle = {
-              left: (rect.left + (rect.width + 10 / 2)) + 'px',
+              left: (rect.left + (rect.width / 2)) + 'px',
               top: (rect.bottom + 10) + 'px',
               transform: 'translateX(-50%)'
             };
@@ -361,9 +363,19 @@ const App = {
         }
       });
     },
+    toggleTooltip(text, event) {
+      // Мобильное/клик поведение: при повторном клике по той же иконке скрываем
+      const sameTarget = this.targetElement && event && event.currentTarget === this.targetElement;
+      if (this.isTooltipVisible && sameTarget) {
+        this.hideTooltip();
+      } else {
+        this.showTooltip(text, event);
+      }
+    },
     
     hideTooltip() {
       this.isTooltipVisible = false;
+      this.targetElement = null;
     },
     updateTooltipPosition() {
       if (this.targetElement && this.isTooltipVisible) {
@@ -373,13 +385,13 @@ const App = {
         if (isDesktop) {
           this.tooltipStyle = {
             left: (rect.right + 10) + 'px',
-            top: (rect.top + window.scrollY + (rect.height / 2)) + 'px',
+            top: (rect.top + (rect.height / 2)) + 'px',
             transform: 'translateY(-50%)'
           };
         } else {
           this.tooltipStyle = {
-            left: (rect.left + window.scrollX + (rect.width / 2)) + 'px',
-            top: (rect.bottom + window.scrollY + 10) + 'px',
+            left: (rect.left + (rect.width / 2)) + 'px',
+            top: (rect.bottom + 10) + 'px',
             transform: 'translateX(-50%)'
           };
         }
@@ -387,12 +399,14 @@ const App = {
     },
     
     handleScroll() {
-      if (window.innerWidth < 768 && this.isTooltipVisible) {
-        // На мобильных скрываем при скролле
-        this.hideTooltip();
-      } else if (window.innerWidth >= 768 && this.isTooltipVisible) {
-        // На десктопах обновляем позицию
-        this.updateTooltipPosition();
+      if (this.isTooltipVisible) {
+        if (window.innerWidth < 768) {
+          // На мобильных легкое затухание при скролле
+          this.hideTooltip();
+        } else {
+          // На десктопах подстраиваем позицию
+          this.updateTooltipPosition();
+        }
       }
     },
     

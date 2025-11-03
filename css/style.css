@@ -128,7 +128,7 @@ header{
     align-items: center;
     padding-left: 170px;
     background-image: 
-        url("../src/img/heroIMG.png"),
+        url("../src/img/heroIMG.webp"),
         url("../src/img/heroBG.svg");
     background-repeat: no-repeat;
     background-position: 
@@ -1328,6 +1328,18 @@ body.mobile-menu-open {
     .about_text, .about_img{
         width: 100%;
     }
+    .about_img img{
+        width: 100%;
+        height: auto !important;
+        max-width: 100%;
+    }
+    .about_bage{
+        right: 0px;
+        top: 75px;
+        text-align: left;
+        font-size: 12px;
+        width: 100px;
+    }
     .about_text_btn{
         margin-bottom: 32px;
     }
@@ -1432,16 +1444,44 @@ body.mobile-menu-open {
 
 /* БАЗОВЫЕ СТИЛИ ТУЛТИПА - ТОЧНО РАБОТАЮТ */
 /* Стили для тултипа с хвостиком */
-.tooltip-text {
-    cursor: help;
-    border-bottom: 1px dotted var(--blackColor);
-    padding-bottom: 1px;
-    transition: all 0.3s ease;
+/* Термин без подчеркивания */
+.tooltip-term{
+    cursor: default;
 }
 
-.tooltip-text:hover {
+.tooltip-wrap{
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Иконка информера */
+.tooltip-icon{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 17px;
+    height: 17px;
+    margin-left: 8px;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    background: #ffffff;
+    color: var(--blackColor);
+    cursor: help;
+    padding: 5px;
+    transition: color 0.2s ease, transform 0.15s ease;
+}
+.tooltip-icon__glyph{
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+}
+.tooltip-icon:hover {
     color: var(--lorangeColor);
-    border-bottom-color: var(--lorangeColor);
+    transform: translateY(-1px);
+    background: #fff8f3;
+}
+@media (max-width: 767px){
+    .tooltip-icon{ touch-action: manipulation; }
 }
 
 .tooltip {
@@ -1460,13 +1500,15 @@ body.mobile-menu-open {
     overflow-wrap: break-word;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(4px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
     border: 1px solid #f0f0f0;
 }
 
 .tooltip--active {
     opacity: 1;
     visibility: visible;
+    transform: translateY(0);
 }
 
 /* Хвостик тултипа */

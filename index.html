@@ -92,8 +92,8 @@
     <main role="main">
     <section class="hero section">
         <div class="hero_text">
-            <h1 class="hero_header">Психолог в Пятигорске — Мария Позднякова</h1>
-            <h2 class="hero_description">Гештальт‑терапевт, индивидуальные консультации офлайн и онлайн</h2>
+            <h2 class="hero_header">Мария<br>Позднякова</h2>
+            <h1 class="hero_description">Психолог в Пятигорске, индивидуальные консультации офлайн и онлайн</h1>
             <div class="hero_bage">[cо мной вам будет свободно и безопасно]</div>
             <a href="https://clck.ru/3Q7BVx" class="hero_btn btn descbtn" rel="noopener noreferrer">Записаться на консультацию&#8195;→</a>
             <a href="https://clck.ru/3Q7BVx" class="hero_btn btn mobbtn" rel="noopener noreferrer">Записаться&#8195;→</a>
@@ -151,47 +151,56 @@
                 <div class="about_text_maps">
                     <h3 class="about_maps_head about_one">Образование</h3>
                     <ul class="about_maps_items">
-                        <li class="about_maps_item">магистр психологии (КубГУ)</li>
-                        <li class="about_maps_item">клинический психолог</li>
-                        <li class="about_maps_item">детский психолог</li>
+                        <li class="about_maps_item">Магистр психологии (КубГУ)</li>
+                        <li class="about_maps_item">Клинический психолог</li>
+                        <li class="about_maps_item">Детский психолог</li>
                     </ul>
                 </div>
                 <div class="about_text_maps">
                     <h3 class="about_maps_head about_two">Методы работы</h3>
                     <ul class="about_maps_items">
                         <li class="about_maps_item">
-                            <span 
-                                class="tooltip-text"
+                            <span class="tooltip-wrap"><span class="tooltip-term">Гештальт терапия</span>
+                            <button class="tooltip-icon" type="button"
                                 @mouseenter="showTooltip('это направление психотерапии, которое помогает человеку сделать свою жизнь более комфортной и яркой, осознать связь мыслей с телом и чувствами и жить в настоящем', $event)"
                                 @mouseleave="hideTooltip"
+                                @click="toggleTooltip('это направление психотерапии, которое помогает человеку сделать свою жизнь более комфортной и яркой, осознать связь мыслей с телом и чувствами и жить в настоящем', $event)"
+                                aria-label="Подробнее о гештальт терапии"
                             >
-                                гештальт терапия
-                            </span>
+                                <span aria-hidden="true" class="tooltip-icon__glyph">?</span>
+                            </button></span>
                         </li>
                         <li class="about_maps_item">
-                            <span 
-                                class="tooltip-text"
+                            <span class="tooltip-wrap"><span class="tooltip-term">EMDR (ДПДГ)</span>
+                            <button class="tooltip-icon" type="button"
                                 @mouseenter="showTooltip('Основа метода — билатеральная стимуляция: попеременная активация правого и левого полушарий мозга. Чаще всего это движения глаз влево-вправо, но можно использовать звуки или прикосновения', $event)"
                                 @mouseleave="hideTooltip"
+                                @click="toggleTooltip('Основа метода — билатеральная стимуляция: попеременная активация правого и левого полушарий мозга. Чаще всего это движения глаз влево-вправо, но можно использовать звуки или прикосновения', $event)"
+                                aria-label="Подробнее о EMDR"
                             >
-                                EMDR (ДПДГ)
-                            </span>
+                                <span aria-hidden="true" class="tooltip-icon__glyph">?</span>
+                            </button></span>
                         </li>
                         <li class="about_maps_item">
-                            <span 
-                                class="tooltip-text"
+                            <span class="tooltip-wrap"><span class="tooltip-term">Арт-терапия</span>
+                            <button class="tooltip-icon" type="button"
                                 @mouseenter="showTooltip('это способ избавиться от лишних переживаний с помощью занятий изобразительным искусством', $event)"
                                 @mouseleave="hideTooltip"
+                                @click="toggleTooltip('это способ избавиться от лишних переживаний с помощью занятий изобразительным искусством', $event)"
+                                aria-label="Подробнее об арт-терапии"
                             >
-                                арт-терапия
-                            </span>
+                                <span aria-hidden="true" class="tooltip-icon__glyph">?</span>
+                            </button></span>
                         </li>
                     </ul>
                 </div>
                 <a href="javascript:void(0)" class="about_text_btn btn" @click="openModal">Посмотреть документы</a>
             </div>
             <div class="about_img">
-                <img src="src/img/aboutIMG.png" alt="Мария Позднякова — психолог" width="440" height="660" loading="lazy" decoding="async" style="height: 660px; width: auto; display: inline-block;">
+                <picture>
+                    <source media="(max-width: 767px)" srcset="src/img/aboutIMG767.webp">
+                    <img src="src/img/aboutIMG.webp" alt="Мария Позднякова — психолог" width="440" height="660" loading="lazy" decoding="async" style="height: 660px; width: auto; display: inline-block;">
+                </picture>
                 <div class="about_bage">[практикую более 7 лет]</div>
             </div>  
         </div>
