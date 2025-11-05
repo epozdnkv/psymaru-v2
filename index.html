@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=check" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+    <link rel="preload" as="image" href="src/img/heroIMG.webp">
 </head>
 <body id = "app">
     <header role="navigation">
@@ -98,8 +99,9 @@
             <a href="https://clck.ru/3Q7BVx" class="hero_btn btn descbtn" rel="noopener noreferrer">Записаться на консультацию&#8195;→</a>
             <a href="https://clck.ru/3Q7BVx" class="hero_btn btn mobbtn" rel="noopener noreferrer">Записаться&#8195;→</a>
         </div>
-        <div class="hero_img"> </div>
-        
+        <div class="hero_img">
+            <img src="src/img/heroIMG.webp" alt="Психолог в Пятигорске — Мария Позднякова" fetchpriority="high" decoding="sync">
+        </div>   
     </section>
 
     <section class="work">  
@@ -164,7 +166,8 @@
                             <button class="tooltip-icon" type="button"
                                 @mouseenter="showTooltip('это направление психотерапии, которое помогает человеку сделать свою жизнь более комфортной и яркой, осознать связь мыслей с телом и чувствами и жить в настоящем', $event)"
                                 @mouseleave="hideTooltip"
-                                @click="toggleTooltip('это направление психотерапии, которое помогает человеку сделать свою жизнь более комфортной и яркой, осознать связь мыслей с телом и чувствами и жить в настоящем', $event)"
+                                @touchstart.stop.prevent="onTooltipTouch('это направление психотерапии, которое помогает человеку сделать свою жизнь более комфортной и яркой, осознать связь мыслей с телом и чувствами и жить в настоящем', $event)"
+                                @click.stop.prevent="toggleTooltip('это направление психотерапии, которое помогает человеку сделать свою жизнь более комфортной и яркой, осознать связь мыслей с телом и чувствами и жить в настоящем', $event)"
                                 aria-label="Подробнее о гештальт терапии"
                             >
                                 <span aria-hidden="true" class="tooltip-icon__glyph">?</span>
@@ -175,7 +178,8 @@
                             <button class="tooltip-icon" type="button"
                                 @mouseenter="showTooltip('Основа метода — билатеральная стимуляция: попеременная активация правого и левого полушарий мозга. Чаще всего это движения глаз влево-вправо, но можно использовать звуки или прикосновения', $event)"
                                 @mouseleave="hideTooltip"
-                                @click="toggleTooltip('Основа метода — билатеральная стимуляция: попеременная активация правого и левого полушарий мозга. Чаще всего это движения глаз влево-вправо, но можно использовать звуки или прикосновения', $event)"
+                                @touchstart.stop.prevent="onTooltipTouch('Основа метода — билатеральная стимуляция: попеременная активация правого и левого полушарий мозга. Чаще всего это движения глаз влево-вправо, но можно использовать звуки или прикосновения', $event)"
+                                @click.stop.prevent="toggleTooltip('Основа метода — билатеральная стимуляция: попеременная активация правого и левого полушарий мозга. Чаще всего это движения глаз влево-вправо, но можно использовать звуки или прикосновения', $event)"
                                 aria-label="Подробнее о EMDR"
                             >
                                 <span aria-hidden="true" class="tooltip-icon__glyph">?</span>
@@ -186,7 +190,8 @@
                             <button class="tooltip-icon" type="button"
                                 @mouseenter="showTooltip('это способ избавиться от лишних переживаний с помощью занятий изобразительным искусством', $event)"
                                 @mouseleave="hideTooltip"
-                                @click="toggleTooltip('это способ избавиться от лишних переживаний с помощью занятий изобразительным искусством', $event)"
+                                @touchstart.stop.prevent="onTooltipTouch('это способ избавиться от лишних переживаний с помощью занятий изобразительным искусством', $event)"
+                                @click.stop.prevent="toggleTooltip('это способ избавиться от лишних переживаний с помощью занятий изобразительным искусством', $event)"
                                 aria-label="Подробнее об арт-терапии"
                             >
                                 <span aria-hidden="true" class="tooltip-icon__glyph">?</span>

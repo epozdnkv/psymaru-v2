@@ -14,6 +14,7 @@ const App = {
         top: '100px'
       },
       targetElement: null,
+      isTouchDevice: false,
       /*Тултипы*/
       documents: [
         {
@@ -336,6 +337,10 @@ const App = {
     //Бургер меню
 
     showTooltip(text, event) {
+      if (event && event.type === 'mouseenter' && this.isTouchDevice) {
+        // На тач-устройствах игнорируем hover-события
+        return;
+      }
       this.tooltipText = text;
       this.isTooltipVisible = true;
       this.targetElement = event && event.currentTarget ? event.currentTarget : null;
@@ -371,6 +376,12 @@ const App = {
       } else {
         this.showTooltip(text, event);
       }
+    },
+    onTooltipTouch(text, event) {
+      // Показ при первом касании, предотвращаем двойную активацию
+      event.preventDefault();
+      event.stopPropagation();
+      this.showTooltip(text, event);
     },
     
     hideTooltip() {
@@ -430,6 +441,8 @@ const App = {
       }
     };
     document.addEventListener('keydown', this._onKeydown);
+    // Определяем тач-устройство
+    this.isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
     
     // Закрытие при клике вне меню
     document.addEventListener('click', (e) => {

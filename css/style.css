@@ -127,13 +127,9 @@ header{
     display: flex;
     align-items: center;
     padding-left: 170px;
-    background-image: 
-        url("../src/img/heroIMG.webp"),
-        url("../src/img/heroBG.svg");
+    background-image: url("../src/img/heroBG.svg");
     background-repeat: no-repeat;
-    background-position: 
-        calc(100% - 310px) bottom,  /* heroIMG: 310px от правого края */
-        bottom right;                /* heroBG: в правом нижнем углу */
+    background-position: bottom right;/* heroBG: в правом нижнем углу */
     height: 580px;
     position: relative;
 }
@@ -166,6 +162,11 @@ header{
     width: 50%; /* Явно указываем ширину */
 }
 
+.hero_img img {
+    position: absolute;
+    bottom: 0;
+    right: 310px;
+}
 
 .hero_bage{
     position: absolute;
@@ -1007,12 +1008,13 @@ body.mobile-menu-open {
     /* Hero специфичные стили */
     .hero {
         padding-left: 28px; /* Убираем большой отступ слева */
-        background-position: 
-            calc(100% - 165px) bottom,  /* heroIMG: 310px от правого края */
-            calc(100% + 165px) bottom;  /* heroBG: в правом нижнем углу */
+        background-position: calc(100% + 165px) bottom;  /* heroBG: в правом нижнем углу */
     }
     .hero_bage{
         right: 30px;
+    }
+    .hero_img img {
+        right: 160px;
     }
     
     /* FAQ специфичные стили */
@@ -1046,9 +1048,10 @@ body.mobile-menu-open {
          margin-bottom: 110px;
     }
     .hero{
-        background-position: 
-            calc(100% - 40px) bottom,  /* heroIMG: 310px от правого края */
-            calc(100% + 240px) bottom;  /* heroBG: в правом нижнем углу */
+        background-position: calc(100% + 240px) bottom;  /* heroBG: в правом нижнем углу */
+    }
+    .hero_img img {
+        right: 40px;
     }
     .hero_description{
         margin-bottom: 25px;
@@ -1120,9 +1123,7 @@ body.mobile-menu-open {
         padding: 60px 32px;
         gap: 40px;
         height: 1000px;
-        background-position: 
-            center bottom,  /* heroIMG*/
-            center bottom;  /* heroBG*/
+        background-position: center bottom;  /* heroBG*/
     }
     .hero_bage{
         position: absolute;
@@ -1145,11 +1146,13 @@ body.mobile-menu-open {
         align-items: start;
         justify-content: center;
     }
-    
-    .hero_img {
+    .hero_img img{
+        left: 140px;
+    }
+    .hero_img{
         width: 100%;
-        max-width: 400px;
-        height: auto;
+        display: flex;
+        align-items:end;
         order: 2;
     }
     
@@ -1227,46 +1230,46 @@ body.mobile-menu-open {
         width: calc(100% - 40px);
         max-width: 767px;
         margin: 32px auto 0px auto;
+        justify-content: space-between;
     }
     .btnMenu_img{
         width: 50px;
     }
     .hero {
-        flex-direction: column;
-        align-items: start;
-        justify-content: center;
-        padding: 40px 20px;
-        gap: 32px;
-        height: 530px;
-        background-position: 
-            center bottom,  /* heroIMG*/
-            center bottom;  /* heroBG*/
-        background-size: 
-            210px auto,     /* Уменьшаем размер heroIMG */
-            100% 320px;          /* heroBG остается на весь экран */
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: space-between; /* Распределяем пространство */
+        padding: 40px 20px 0 20px; /* Убираем отступ снизу */
+        gap: 0; /* Убираем gap */
+        height: auto;
+        background-position: center bottom;
+        background-size: 100% auto;
     }
-    .hero_bage{
-        font-size: 12px;
-        width: 130px;
-        right: 20px;
-        top: 275px;
-    }
+
+
     .hero_text {
         width: 100%;
         order: 1;
         display: flex;
         flex-direction: column;
-        align-items: start;
+        align-items: start; /* Центрируем содержимое */
         justify-content: center;
     }
-    
+
     .hero_img {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end; /* Выравниваем по низу */
+    }
+
+    .hero_img img{
+        position: static;
         width: 100%;
         max-width: 280px;
         height: auto;
-        order: 2;
+        margin-bottom: 0; /* Убираем отступ снизу */
     }
-    
+
     .hero_header {
         font-size: 32px;
         margin-bottom: 16px;
@@ -1274,6 +1277,14 @@ body.mobile-menu-open {
     
     .hero_description {
         font-size: 16px;
+        margin-bottom: 24px;
+    }
+
+    .hero_bage{
+        display: none;
+        position: static;
+        font-size: 12px;
+        width: 100%;
         margin-bottom: 24px;
     }
     
