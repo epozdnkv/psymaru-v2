@@ -7,12 +7,15 @@ const App = {
       isMobileMenuOpen: false,
       currentImage: '',
       /*Тултипы*/
-      isTooltipVisible: false,
+            isTooltipVisible: false,
       tooltipText: '',
       tooltipStyle: {
-        left: '100px',  // Фиксированная позиция для теста
+        left: '100px',
         top: '100px'
       },
+      targetElement: null,
+      isTouchDevice: false,
+      activeTooltipId: null, // ID активного тултипа
       /*Тултипы*/
       documents: [
         {
@@ -334,13 +337,26 @@ const App = {
     },
     //Бургер меню
 
+    /*Тултипы - переписанные методы*/
     showTooltip(text, event) {
+      // На десктопе показываем при hover, на мобильных игнорируем hover
+      if (event && event.type === 'mouseenter' && this.isTouchDevice) {
+        return;
+      }
+      
       this.tooltipText = text;
       this.isTooltipVisible = true;
+      this.targetElement = event && event.currentTarget ? event.currentTarget : null;
+      
+      // Генерируем уникальный ID для тултипа
+      const tooltipId = this.targetElement ? 
+        this.targetElement.getAttribute('data-tooltip-id') || 
+        'tooltip-' + Date.now() : null;
+      this.activeTooltipId = tooltipId;
       
       this.$nextTick(() => {
-        if (event && event.target) {
-          const rect = event.target.getBoundingClientRect();
+        if (this.targetElement) {
+          const rect = this.targetElement.getBoundingClientRect();
           const isDesktop = window.innerWidth >= 768;
           
           if (isDesktop) {
@@ -353,7 +369,7 @@ const App = {
           } else {
             // Снизу на мобильных
             this.tooltipStyle = {
-              left: (rect.left + (rect.width + 10 / 2)) + 'px',
+              left: (rect.left + (rect.width / 2)) + 'px',
               top: (rect.bottom + 10) + 'px',
               transform: 'translateX(-50%)'
             };
@@ -361,10 +377,43 @@ const App = {
         }
       });
     },
+
+    toggleTooltip(text, event) {
+      if (!event) return;
+      
+      const currentTarget = event.currentTarget;
+      const tooltipId = currentTarget.getAttribute('data-tooltip-id');
+      
+      // Если кликаем по той же иконке, скрываем тултип
+      if (this.isTooltipVisible && this.activeTooltipId === tooltipId) {
+        this.hideTooltip();
+      } else {
+        // Иначе показываем новый тултип
+        this.showTooltip(text, event);
+      }
+    },
+
+    onTooltipTouch(text, event) {
+      // На мобильных: одинарное нажатие показывает/скрывает тултип
+      event.preventDefault();
+      event.stopPropagation();
+      
+      const currentTarget = event.currentTarget;
+      const tooltipId = currentTarget.getAttribute('data-tooltip-id');
+      
+      if (this.isTooltipVisible && this.activeTooltipId === tooltipId) {
+        this.hideTooltip();
+      } else {
+        this.showTooltip(text, event);
+      }
+    },
     
     hideTooltip() {
       this.isTooltipVisible = false;
+      this.targetElement = null;
+      this.activeTooltipId = null;
     },
+
     updateTooltipPosition() {
       if (this.targetElement && this.isTooltipVisible) {
         const rect = this.targetElement.getBoundingClientRect();
@@ -373,13 +422,13 @@ const App = {
         if (isDesktop) {
           this.tooltipStyle = {
             left: (rect.right + 10) + 'px',
-            top: (rect.top + window.scrollY + (rect.height / 2)) + 'px',
+            top: (rect.top + (rect.height / 2)) + 'px',
             transform: 'translateY(-50%)'
           };
         } else {
           this.tooltipStyle = {
-            left: (rect.left + window.scrollX + (rect.width / 2)) + 'px',
-            top: (rect.bottom + window.scrollY + 10) + 'px',
+            left: (rect.left + (rect.width / 2)) + 'px',
+            top: (rect.bottom + 10) + 'px',
             transform: 'translateX(-50%)'
           };
         }
@@ -387,12 +436,9 @@ const App = {
     },
     
     handleScroll() {
-      if (window.innerWidth < 768 && this.isTooltipVisible) {
-        // На мобильных скрываем при скролле
+      // При скролле всегда скрываем тултип на всех устройствах
+      if (this.isTooltipVisible) {
         this.hideTooltip();
-      } else if (window.innerWidth >= 768 && this.isTooltipVisible) {
-        // На десктопах обновляем позицию
-        this.updateTooltipPosition();
       }
     },
     
@@ -400,25 +446,33 @@ const App = {
       if (this.isTooltipVisible) {
         this.hideTooltip();
       }
+    },
+    
+    handleClickOutside(event) {
+      // Закрываем тултип при клике вне его области
+      if (this.isTooltipVisible && 
+          !event.target.closest('.tooltip') && 
+          !event.target.closest('.tooltip-icon')) {
+        this.hideTooltip();
+      }
     }
   },
   mounted() {
-    // Закрытие модального окна по ESC
-    document.addEventListener('keydown', (e) => {
+    // Закрытие модальных окон и меню по ESC
+    this._onKeydown = (e) => {
       if (e.key === 'Escape') {
         if (this.isImageModalOpen) {
           this.closeImageModal();
         } else if (this.isModalOpen) {
           this.closeModal();
+        } else if (this.isMobileMenuOpen) {
+          this.closeMobileMenu();
         }
       }
-    });
-     // Закрытие по ESC
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && this.isMobileMenuOpen) {
-        this.closeMobileMenu();
-      }
-    });
+    };
+    document.addEventListener('keydown', this._onKeydown);
+    // Определяем тач-устройство
+    this.isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
     
     // Закрытие при клике вне меню
     document.addEventListener('click', (e) => {
@@ -429,14 +483,28 @@ const App = {
       }
     });
     //Тултип
+    // Определяем тач-устройство
+    this.isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    
+    // Добавляем обработчики для тултипов
     window.addEventListener('scroll', this.handleScroll, { passive: true });
     window.addEventListener('resize', this.handleResize);
+    document.addEventListener('click', this.handleClickOutside);
+    
+    // Генерируем уникальные ID для всех тултипов
+    this.$nextTick(() => {
+      const tooltipIcons = document.querySelectorAll('.tooltip-icon');
+      tooltipIcons.forEach((icon, index) => {
+        icon.setAttribute('data-tooltip-id', `tooltip-${index}`);
+      });
+    });
   },
    beforeUnmount() {
     // Убедимся, что скролл включен при размонтировании компонента
     this.enableBodyScroll();
-    window.addEventListener('scroll', this.handleScroll, { passive: true });
-    window.addEventListener('resize', this.handleResize);
+    window.removeEventListener('scroll', this.handleScroll, { passive: true });
+    window.removeEventListener('resize', this.handleResize);
+    document.removeEventListener('click', this.handleClickOutside);
   }
 };
 Vue.createApp(App).mount("#app");
