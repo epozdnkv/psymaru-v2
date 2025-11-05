@@ -282,7 +282,7 @@ header{
 
 .about_img {
     width: 50%;
-    height: auto;
+    height: 660px;
     border-radius: 48px;
     border: 1px solid #e7e7e7;
     background-color: var(--whiteColor);
@@ -295,6 +295,26 @@ header{
         bottom right;
     text-align: center;
     position: relative !important;
+    display: flex;
+    align-items: flex-end; /* Прижимаем содержимое к низу */
+    justify-content: center; /* Центрируем по горизонтали */
+    padding-bottom: 0; /* Убираем отступ снизу */
+    overflow: hidden; /* Скрываем выходящие за пределы элементы */
+}
+.about_img img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    display: block;
+    margin-bottom: 0; /* Убираем отступ снизу */
+    align-self: flex-end; /* Прижимаем изображение к низу */
+}
+.about_img picture{
+    display: block;
+    margin: 0;
+    padding: 0;
+    line-height: 0; /* Убираем лишние отступы */
+    position: relative; /* Добавляем относительное позиционирование */
 }
 .about_text_btn {
     text-align: center; /* Горизонтальное центрирование текста */
@@ -305,8 +325,8 @@ header{
 
 .about_bage{
     position: absolute;
-    top: 140px;
-    right: 10px;
+    top: 100px;
+    right: -100px;
     color: var(--dvioletColor);
     font: 500 16px 'Unbounded';
     width: 180px;
@@ -367,14 +387,16 @@ header{
     display: flex;
     gap: 40px; /* Отступ между элементами */
 }
-.groupTherapy_img, .groupTherapy_text{
+.groupTherapy_img, .groupTherapy_text, .groupTherapy_img1024{
     flex: 1 1 50%;
     border-radius: 48px;
     border: 1px solid #e7e7e7;
     width: 100%; /* Добавляем одинаковую ширину */
     box-sizing: border-box; /* Учитываем padding в ширине */
 }
-
+.groupTherapy_img1024{
+    display: none;
+}
 .groupTherapy_text{
     display: flex;
     flex-direction: column;
@@ -403,15 +425,14 @@ header{
     gap: 40px;
     align-items: flex-start;
 }
-.card_item{
+.card_item {
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 48px;
-    flex: 0 0 50%; /* Фиксированная ширина */
-    box-sizing: border-box;
+    object-fit: cover;
 }
 .card_description{
-    flex: 0 0 calc(50% - 40px); /* Учитываем gap */
+    flex: 0 0 calc(50% - 20px); /* Учитываем gap */
     padding: 40px;
     background-color: var(--whiteColor);
     border: 1px solid #e7e7e7;
@@ -437,6 +458,46 @@ header{
     left: 0;
     /* Маркер позиционируется как при outside */
 }
+.card_img {
+    flex: 1; /* Занимает всё оставшееся пространство */
+    box-sizing: border-box;
+    height: 736px;
+    min-width: 0; /* Позволяет сжиматься */
+}
+/* Стили для плейсхолдера карты */
+.card_placeholder {
+    width: 100%; /* Растягивается на всю ширину card_img */
+    height: 100%; /* Растягивается на всю высоту card_img */
+    min-height: 736px;
+    border-radius: 48px;
+    background: var(--whiteColor);
+    border: 4px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: 
+        linear-gradient(white, white) padding-box,
+        linear-gradient(-45deg, var(--dorangeColor), var(--dvioletColor)) border-box;
+}
+
+.card_placeholder_content {
+    text-align: center;
+    padding: 40px;
+}
+
+.card_placeholder_text {
+    font: 500 32px 'Unbounded';
+    color: var(--dvioletColor);
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.card_placeholder:hover .card_placeholder_text {
+    color: var(--dorangeColor);
+    opacity: 1;
+}
 
 .work_header{
     font: 700 40px 'Inter';
@@ -446,6 +507,9 @@ header{
     font: 400 24px 'Inter';
     margin-bottom: 48px;
     opacity: 80%;
+}
+.card_description p{
+    margin-bottom: 16px;
 }
 
 /* Контакты*/
@@ -467,6 +531,9 @@ header{
     font: 700 24px 'Inter';
     color: var(--blackColor);
     margin-bottom: 40px;
+}
+.contacts__desc a{
+    color: var(--blackColor);
 }
 
 
@@ -490,6 +557,7 @@ header{
     border: 1px solid #e7e7e7;
     border-radius: 24px;
     overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 .faq__item--active {
@@ -502,15 +570,18 @@ header{
     align-items: center;
     padding: 40px 40px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .faq__question-text {
     font: 400 32px 'Inter';
     color: var(--blackColor);
+    transition: color 0.3s ease;
 }
 
 .faq__icon {
     color: var(--blackColor);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .faq__item--active .faq__icon {
@@ -525,6 +596,7 @@ header{
 .faq__answer {
     max-height: 0;
     overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .faq__item--active .faq__answer {
@@ -535,14 +607,21 @@ header{
     padding: 0 32px 24px 32px;
     font: 400 24px 'Inter';
     color: var(--blackColor);
+    opacity: 0;
+    transition: all 0.4s ease 0.1s;
+}
+.faq__item--active .faq__answer-content {
+    transform: translateY(0);
     opacity: 0.8;
 }
+
 .faq_description_item{
     position: relative;
     text-align: left; /* Текст выровнен как при inside */
     padding-left: 1.5em; /* Место для кастомного маркера */
     opacity: 80%;
     line-height: 1.5;
+    transition: opacity 0.3s ease;
 }
 
 .faq_description_item::before {
@@ -1092,11 +1171,27 @@ body.mobile-menu-open {
         display: flex;
     }
     .about_bage{
-        right: 0px;
+        right: -40px;
         text-align: left;
         width: 130px;
     }
+    .groupTherapy_img{
+        display: none;
+    }
+    .groupTherapy_img1024{
+        display: block;
+        overflow: hidden;
+        object-fit:cover;
+        width: 100%;
+        object-position: left;
+
+    }
+    .card_description_item:not(:last-child){
+        padding-bottom: 24px;
+    }
 }
+
+
 
 @media (min-width: 768px) and (max-width: 1023px) {
     .mobbtn{
@@ -1189,8 +1284,13 @@ body.mobile-menu-open {
         height: 470px;
     }
     .cardFlex{
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .card_placeholder, .card_img {
+        height: 100%;
+        width: 100%; /* Растягиваем на всю ширину */
     }
     .contactsFlex{
         flex-direction: column-reverse;
@@ -1339,13 +1439,17 @@ body.mobile-menu-open {
     .about_text, .about_img{
         width: 100%;
     }
+    .about_img{
+        border-radius: 24px;
+        height: 400px;
+    }
     .about_img img{
         width: 100%;
         height: auto !important;
         max-width: 100%;
     }
     .about_bage{
-        right: 0px;
+        right: -20px;
         top: 75px;
         text-align: left;
         font-size: 12px;
@@ -1373,9 +1477,14 @@ body.mobile-menu-open {
         flex-direction: column;
         gap: 0;
     }
+    
     .groupTherapy_text{
         border-radius: 24px;
         padding: 16px;
+        margin-bottom: 16px;
+    }
+    .groupTherapy_img{
+        border-radius: 24px;
     }
     .groupTherapy_text_head{
         font-size: 20px;
@@ -1385,6 +1494,7 @@ body.mobile-menu-open {
     }
     .groupTherapy_desc{
         flex-direction: column-reverse;
+        gap:0;
     }
     .faq__question{
         padding: 16px;
@@ -1399,8 +1509,9 @@ body.mobile-menu-open {
         border-radius: 16px;
     }
     .cardFlex{
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
+        gap: 16px;
     }
     .card_description{
         border-radius: 24px;
@@ -1411,6 +1522,16 @@ body.mobile-menu-open {
     }
     .card_description_item:not(:last-child){
         padding-bottom: 16px;
+    }
+
+    .card_placeholder, .card_item, .card_img {
+        width: 100%;
+        height: 530px; /* Фиксированная высота 530px */
+        min-height: 530px;
+        border-radius: 24px;
+    }
+    .card_placeholder_text{
+        font-size: 16px;
     }
     .work_header{
         font-size: 20px;
@@ -1473,23 +1594,28 @@ body.mobile-menu-open {
     width: 17px;
     height: 17px;
     margin-left: 8px;
-    border: 1px solid currentColor;
+    border: 1px solid var(--blackColor);
     border-radius: 50%;
     background: #ffffff;
     color: var(--blackColor);
     cursor: help;
     padding: 5px;
-    transition: color 0.2s ease, transform 0.15s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.tooltip-icon:hover,
+.tooltip-icon.tooltip-icon--active {
+    color: var(--lorangeColor);
+    border-color: var(--lorangeColor);
+    background: #fff8f3;
+    transform: scale(1.1);
+}
+
 .tooltip-icon__glyph{
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 12px;
-}
-.tooltip-icon:hover {
-    color: var(--lorangeColor);
-    transform: translateY(-1px);
-    background: #fff8f3;
+    transition: inherit;
 }
 @media (max-width: 767px){
     .tooltip-icon{ touch-action: manipulation; }
@@ -1567,6 +1693,52 @@ body.mobile-menu-open {
     }
 }
 
+.contactsText{
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* или задайте конкретную высоту */
+    justify-content: space-between;
+}
+/* Стили для социальных иконок в контактах */
+.contact_social {
+    display: flex;
+    gap: 33px;
+}
 
+.contact_icon {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
 
+.contact_icon:hover{
+    stop-color: var(--dorangeColor) !important;
+}
 
+.contact_icon:hover .cls-2 {
+  stop-color: var(--dorangeColor) !important;
+}
+
+/* Для WhatsApp градиента */
+.contact_icon:hover #whatsapp_gradient stop {
+  stop-color: var(--dorangeColor) !important;
+}
+
+/* Для Telegram градиента */
+.contact_icon:hover #tg_gradient stop {
+  stop-color: var(--dorangeColor) !important;
+}
+
+/* Для VK градиента */
+.contact_icon:hover #vk_gradient stop {
+  stop-color: var(--dorangeColor) !important;
+}
+
+.cls-1 {
+  fill: #fff;
+}
+
+.cls-2 {
+  transition: fill 0.3s ease;
+}
