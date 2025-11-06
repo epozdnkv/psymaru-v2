@@ -11,7 +11,7 @@
     user-select: none;
 }
 
-:root{
+:root {
     --whiteColor: #fff;
     --blackColor: #1E1E1E;
     --dorangeColor: #F16A41;
@@ -29,21 +29,32 @@
     --heightSectionMobile: 530px;
     scroll-behavior: smooth;
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
     list-style: none;
     box-sizing: border-box;
 }
-html, body{
+
+html,
+body {
     width: 100%;
 }
-h1, h2, h3, h4, h5, h6{
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Unbounded', sans-serif;
 }
-a{
+
+a {
     text-decoration: none;
 }
+
 .btn {
     font-family: 'Unbounded', sans-serif;
     padding: 20px 40px;
@@ -52,88 +63,115 @@ a{
     font-size: 20px;
 }
 
-.section_head{
+.section_head {
     font-weight: 700;
     font-size: 48px;
     color: var(--blackColor);
     margin-bottom: 40px;
 }
-section{
+
+section {
     background-color: var(--bgColor);
     border-radius: 56px;
     width: 1568px;
     margin: 32px auto 0px auto;
     padding: 70px 170px;
 }
-.consult, .groupTherapy, .faq, .card, .contacts{
+
+.consult,
+.groupTherapy,
+.faq,
+.card,
+.contacts {
     content-visibility: auto;
     contain-intrinsic-size: 1000px;
 }
-.mobbtn{
+
+.mobbtn {
     display: none;
 }
-.tag{
+
+.tag {
     font: 400 24px 'Inter';
     padding: 10px 15px;
     background-color: var(--blackColor);
     color: var(--whiteColor);
     margin-bottom: 50px !important;
     border-radius: 24px;
-    display: inline-block; /* или block */
-    width: fit-content; /* чтобы занимал только нужную ширину */
+    display: inline-block;
+    /* или block */
+    width: fit-content;
+    /* чтобы занимал только нужную ширину */
 }
+
 /* Основная верстка сайта*/
 /* Меню*/
-header{
+header {
     display: flex;
     gap: 30px;
-    align-items: center; /* Выравнивание по центру по вертикали */
-    width: 1568px; /* Занимает всю ширину */
+    align-items: center;
+    /* Выравнивание по центру по вертикали */
+    width: 1568px;
+    /* Занимает всю ширину */
     margin: 32px auto 0px auto;
 }
+
 .menu {
     background-color: var(--bgColor);
     padding: 20px 40px 20px 170px;
     border-radius: 56px;
 }
+
 .menu_list {
     display: flex;
     gap: 50px;
 }
-.menu_item a{
+
+.menu_item a {
     font: 400 20px 'Unbounded', sans-serif;
     color: var(--blackColor);
 }
-.menu_item a:hover, .menu_item a:active{
+
+.menu_item a:hover,
+.menu_item a:active {
     color: var(--lorangeColor);
 }
-.btnMenu{
+
+.btnMenu {
     display: flex;
     align-items: center;
 }
-.btnMenu_item, .about_text_btn, .groupTherapy_text_btn{
+
+.btnMenu_item,
+.about_text_btn,
+.groupTherapy_text_btn {
     color: var(--whiteColor);
     background: linear-gradient(90deg, var(--lvioletColor), var(--dorangeColor));
 }
-.btnMenu_item:hover, .about_text_btn:hover, .groupTherapy_text_btn:hover{
+
+.btnMenu_item:hover,
+.about_text_btn:hover,
+.groupTherapy_text_btn:hover {
     background: var(--dorangeColor);
 }
-.btnMenu_img{
+
+.btnMenu_img {
     margin-right: 30px;
 }
 
 /* HERO*/
-.hero{
+.hero {
     display: flex;
     align-items: center;
     padding-left: 170px;
     background-image: url("../src/img/heroBG.svg");
     background-repeat: no-repeat;
-    background-position: bottom right;/* heroBG: в правом нижнем углу */
+    background-position: bottom right;
+    /* heroBG: в правом нижнем углу */
     height: 580px;
     position: relative;
 }
-    
+
 
 .hero_header {
     font-weight: 700;
@@ -141,25 +179,32 @@ header{
     color: var(--blackColor);
     margin-bottom: 24px;
 }
+
 .hero_description {
     font-weight: 400;
     font-size: 24px;
     color: var(--blackColor);
     margin-bottom: 72px;
 }
-.hero_btn, .consult_btn{
+
+.hero_btn,
+.consult_btn {
     background-color: var(--blackColor);
     color: var(--whiteColor);
 }
-.hero_btn:hover, .consult_btn:hover{
+
+.hero_btn:hover,
+.consult_btn:hover {
     background-color: var(--dorangeColor);
 }
 
-.hero_text, .hero_img{
+.hero_text,
+.hero_img {
     flex: 1 1 50%;
     box-sizing: border-box;
     object-fit: cover;
-    width: 50%; /* Явно указываем ширину */
+    width: 50%;
+    /* Явно указываем ширину */
 }
 
 .hero_img img {
@@ -168,7 +213,7 @@ header{
     right: 310px;
 }
 
-.hero_bage{
+.hero_bage {
     position: absolute;
     top: 160px;
     right: 170px;
@@ -180,30 +225,37 @@ header{
 /* С чем работаю*/
 .work_list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 колонки равной ширины */
-    gap: 24px 40px; /* vertical horizontal - сначала вертикальный, потом горизонтальный */
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 колонки равной ширины */
+    gap: 24px 40px;
+    /* vertical horizontal - сначала вертикальный, потом горизонтальный */
 }
-.work_maps{
+
+.work_maps {
     border-radius: 48px;
     color: var(--whiteColor);
     padding: 40px;
     position: relative;
 }
-.work_one{
+
+.work_one {
     background-color: var(--lvioletColor);
 }
-.work_two{
+
+.work_two {
     background-color: var(--dorangeColor);
 }
-.work_three{
+
+.work_three {
     background-color: var(--lorangeColor);
 }
-.work_four{
+
+.work_four {
     background-color: var(--dvioletColor);
 }
 
-.work_maps_head{
-    font-family: 'Inter'!important;
+.work_maps_head {
+    font-family: 'Inter' !important;
     font-weight: 700;
     font-size: 40px;
     margin-bottom: 32px;
@@ -211,26 +263,31 @@ header{
 
 .work_maps_item {
     position: relative;
-    padding-left: 1.5em; /* Место для кастомного маркера */
+    padding-left: 1.5em;
+    /* Место для кастомного маркера */
     margin-bottom: 24px;
     font: 400 20px 'Inter';
-    text-align: left; /* Текст выровнен как при inside */
+    text-align: left;
+    /* Текст выровнен как при inside */
 }
 
 .work_maps_item::before {
-    content: "•"; /* Ваш маркер */
+    content: "•";
+    /* Ваш маркер */
     position: absolute;
     left: 0;
     /* Маркер позиционируется как при outside */
 }
 
-.work_maps_num{
+.work_maps_num {
     font: 700 128px 'Unbounded';
     opacity: 20%;
-    position: absolute; /* Абсолютное позиционирование */
+    position: absolute;
+    /* Абсолютное позиционирование */
     right: 0px;
     bottom: -40px;
-    line-height: 1; /* Убираем лишние отступы вокруг текста */
+    line-height: 1;
+    /* Убираем лишние отступы вокруг текста */
 }
 
 /* Обо мне*/
@@ -238,43 +295,51 @@ header{
     display: flex;
     align-items: flex-start;
 }
-.about_text{
+
+.about_text {
     width: 50%;
     margin-right: 40px;
     display: flex;
     flex-direction: column;
 }
-.about_description{
+
+.about_description {
     font: 400 32px 'Inter';
     color: var(--blackColor);
     margin-bottom: 40px;
     opacity: 80%;
 }
-.about_text_maps{
+
+.about_text_maps {
     padding: 40px;
     background-color: var(--whiteColor);
     border: 1px solid #e7e7e7;
     border-radius: 48px;
     margin-bottom: 24px;
 }
-.about_maps_head{
+
+.about_maps_head {
     font: 700 40px 'Inter';
     margin-bottom: 24px;
 }
-.about_one{
+
+.about_one {
     color: var(--dorangeColor);
 }
-.about_two{
+
+.about_two {
     color: var(--dvioletColor);
 }
-.about_maps_item{
+
+.about_maps_item {
     list-style: inside !important;
     margin-bottom: 16px;
     font: 400 20px 'Inter';
     color: var(--blackColor);
     opacity: 80%;
 }
-.ami_flex{
+
+.ami_flex {
     display: flex;
     align-items: center;
     display: inline-flex;
@@ -290,40 +355,55 @@ header{
         url("../src/img/aboutBG1.svg"),
         url("../src/img/aboutBG2.svg");
     background-repeat: no-repeat;
-    background-position: 
+    background-position:
         top left,
         bottom right;
     text-align: center;
     position: relative !important;
     display: flex;
-    align-items: flex-end; /* Прижимаем содержимое к низу */
-    justify-content: center; /* Центрируем по горизонтали */
-    padding-bottom: 0; /* Убираем отступ снизу */
-    overflow: hidden; /* Скрываем выходящие за пределы элементы */
+    align-items: flex-end;
+    /* Прижимаем содержимое к низу */
+    justify-content: center;
+    /* Центрируем по горизонтали */
+    padding-bottom: 0;
+    /* Убираем отступ снизу */
+    overflow: hidden;
+    /* Скрываем выходящие за пределы элементы */
 }
+
 .about_img img {
     width: auto;
     height: auto;
     max-width: 100%;
     display: block;
-    margin-bottom: 0; /* Убираем отступ снизу */
-    align-self: flex-end; /* Прижимаем изображение к низу */
+    margin-bottom: 0;
+    /* Убираем отступ снизу */
+    align-self: flex-end;
+    /* Прижимаем изображение к низу */
 }
-.about_img picture{
+
+.about_img picture {
     display: block;
     margin: 0;
     padding: 0;
-    line-height: 0; /* Убираем лишние отступы */
-    position: relative; /* Добавляем относительное позиционирование */
-}
-.about_text_btn {
-    text-align: center; /* Горизонтальное центрирование текста */
-    display: flex; /* Используем flexbox */
-    justify-content: center; /* Горизонтальное центрирование */
-    align-items: center; /* Вертикальное центрирование */
+    line-height: 0;
+    /* Убираем лишние отступы */
+    position: relative;
+    /* Добавляем относительное позиционирование */
 }
 
-.about_bage{
+.about_text_btn {
+    text-align: center;
+    /* Горизонтальное центрирование текста */
+    display: flex;
+    /* Используем flexbox */
+    justify-content: center;
+    /* Горизонтальное центрирование */
+    align-items: center;
+    /* Вертикальное центрирование */
+}
+
+.about_bage {
     position: absolute;
     top: 100px;
     right: -100px;
@@ -333,23 +413,28 @@ header{
 }
 
 /* Индивидуальная консультация*/
-.consult{
+.consult {
     background-image:
-        url("../src/img/consultBG.svg"), 
+        url("../src/img/consultBG.svg"),
         linear-gradient(90deg, var(--dvioletColor), var(--lvioletColor));
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom right;
 }
-.consult_header{
+
+.consult_header {
     color: var(--whiteColor);
 }
-.consult_list{
+
+.consult_list {
     display: flex;
-    gap: 40px; /* Отступ между элементами */
+    gap: 40px;
+    /* Отступ между элементами */
 }
-.consult_item{
-    flex: 1; /* Каждый элемент занимает равную часть */
+
+.consult_item {
+    flex: 1;
+    /* Каждый элемент занимает равную часть */
     padding: 40px;
     background-color: var(--whiteColor);
     border: 1px solid #e7e7e7;
@@ -359,15 +444,17 @@ header{
     flex-direction: column;
 }
 
-.consult_item_head{
+.consult_item_head {
     font: 400 32px 'Inter';
     margin-bottom: 16px;
 }
-.consult_item_price{
+
+.consult_item_price {
     font: 700 48px 'Unbounded';
     margin-bottom: 110px;
 }
-.consult_desc_item{
+
+.consult_desc_item {
     font: 400 24px 'Inter';
     color: var(--blackColor);
     margin-bottom: 24px;
@@ -376,63 +463,83 @@ header{
 }
 
 .consult_btn {
-    margin-top: auto; /* Отправляем кнопку вниз блока */
-    width: 100%; /* Растягиваем на всю ширину */
+    margin-top: auto;
+    /* Отправляем кнопку вниз блока */
+    width: 100%;
+    /* Растягиваем на всю ширину */
     text-align: center;
     padding: 20px;
 }
 
 /* Групповая терапия*/
-.groupTherapy_desc{
+.groupTherapy_desc {
     display: flex;
-    gap: 40px; /* Отступ между элементами */
+    gap: 40px;
+    /* Отступ между элементами */
 }
-.groupTherapy_img, .groupTherapy_text, .groupTherapy_img1024{
+
+.groupTherapy_img,
+.groupTherapy_text,
+.groupTherapy_img1024 {
     flex: 1 1 50%;
     border-radius: 48px;
     border: 1px solid #e7e7e7;
-    width: 100%; /* Добавляем одинаковую ширину */
-    box-sizing: border-box; /* Учитываем padding в ширине */
+    width: 100%;
+    /* Добавляем одинаковую ширину */
+    box-sizing: border-box;
+    /* Учитываем padding в ширине */
 }
-.groupTherapy_img1024{
+
+.groupTherapy_img1024 {
     display: none;
 }
-.groupTherapy_text{
+
+.groupTherapy_text {
     display: flex;
     flex-direction: column;
     padding: 40px;
     background-color: var(--whiteColor);
 }
-.groupTherapy_text_head{
+
+.groupTherapy_text_head {
     font: 700 40px 'Inter';
     margin-bottom: 24px;
 }
-.groupTherapy_text_desc{
+
+.groupTherapy_text_desc {
     font: 400 24px 'Inter';
     margin-bottom: 48px;
     opacity: 80%;
 }
-.groupTherapy_text_btn{
-    text-align: center; /* Горизонтальное центрирование текста */
-    display: flex; /* Используем flexbox */
-    justify-content: center; /* Горизонтальное центрирование */
-    align-items: center; /* Вертикальное центрирование */
+
+.groupTherapy_text_btn {
+    text-align: center;
+    /* Горизонтальное центрирование текста */
+    display: flex;
+    /* Используем flexbox */
+    justify-content: center;
+    /* Горизонтальное центрирование */
+    align-items: center;
+    /* Вертикальное центрирование */
 }
 
 /* Карта дня*/
-.cardFlex{
+.cardFlex {
     display: flex;
     gap: 40px;
     align-items: flex-start;
 }
+
 .card_item {
     width: 100%;
     height: 100%;
     border-radius: 48px;
     object-fit: cover;
 }
-.card_description{
-    flex: 0 0 calc(50% - 20px); /* Учитываем gap */
+
+.card_description {
+    flex: 0 0 calc(50% - 20px);
+    /* Учитываем gap */
     padding: 40px;
     background-color: var(--whiteColor);
     border: 1px solid #e7e7e7;
@@ -440,34 +547,45 @@ header{
     box-sizing: border-box;
     height: 736px;
 }
-.card_description_item{
+
+.card_description_item {
     position: relative;
-    padding-left: 1.5em; /* Место для кастомного маркера */
+    padding-left: 1.5em;
+    /* Место для кастомного маркера */
     font: 400 24px 'Inter';
-    text-align: left; /* Текст выровнен как при inside */
+    text-align: left;
+    /* Текст выровнен как при inside */
     opacity: 80%;
     line-height: 1;
 }
-.card_description_item:not(:last-child){
+
+.card_description_item:not(:last-child) {
     padding-bottom: 32px;
 }
 
 .card_description_item::before {
-    content: "•"; /* Ваш маркер */
+    content: "•";
+    /* Ваш маркер */
     position: absolute;
     left: 0;
     /* Маркер позиционируется как при outside */
 }
+
 .card_img {
-    flex: 1; /* Занимает всё оставшееся пространство */
+    flex: 1;
+    /* Занимает всё оставшееся пространство */
     box-sizing: border-box;
     height: 736px;
-    min-width: 0; /* Позволяет сжиматься */
+    min-width: 0;
+    /* Позволяет сжиматься */
 }
+
 /* Стили для плейсхолдера карты */
 .card_placeholder {
-    width: 100%; /* Растягивается на всю ширину card_img */
-    height: 100%; /* Растягивается на всю высоту card_img */
+    width: 100%;
+    /* Растягивается на всю ширину card_img */
+    height: 100%;
+    /* Растягивается на всю высоту card_img */
     min-height: 736px;
     border-radius: 48px;
     background: var(--whiteColor);
@@ -477,7 +595,7 @@ header{
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    background: 
+    background:
         linear-gradient(white, white) padding-box,
         linear-gradient(-45deg, var(--dorangeColor), var(--dvioletColor)) border-box;
 }
@@ -499,40 +617,46 @@ header{
     opacity: 1;
 }
 
-.work_header{
+.work_header {
     font: 700 40px 'Inter';
     margin-bottom: 24px;
 }
-.card_desc{
+
+.card_desc {
     font: 400 24px 'Inter';
     margin-bottom: 48px;
     opacity: 80%;
 }
-.card_description p{
+
+.card_description p {
     margin-bottom: 16px;
 }
 
 /* Контакты*/
 
-.maps{
+.maps {
     border-radius: 24px;
 }
-.contactsFlex{
+
+.contactsFlex {
     display: flex;
     gap: 40px;
 }
-.contacts__head{
+
+.contacts__head {
     font: 400 24px 'Inter';
     color: var(--blackColor);
     opacity: 80%;
     margin-bottom: 12px;
 }
-.contacts__desc{
+
+.contacts__desc {
     font: 700 24px 'Inter';
     color: var(--blackColor);
     margin-bottom: 40px;
 }
-.contacts__desc a{
+
+.contacts__desc a {
     color: var(--blackColor);
 }
 
@@ -610,22 +734,26 @@ header{
     opacity: 0;
     transition: all 0.4s ease 0.1s;
 }
+
 .faq__item--active .faq__answer-content {
     transform: translateY(0);
     opacity: 0.8;
 }
 
-.faq_description_item{
+.faq_description_item {
     position: relative;
-    text-align: left; /* Текст выровнен как при inside */
-    padding-left: 1.5em; /* Место для кастомного маркера */
+    text-align: left;
+    /* Текст выровнен как при inside */
+    padding-left: 1.5em;
+    /* Место для кастомного маркера */
     opacity: 80%;
     line-height: 1.5;
     transition: opacity 0.3s ease;
 }
 
 .faq_description_item::before {
-    content: "•"; /* Ваш маркер */
+    content: "•";
+    /* Ваш маркер */
     position: absolute;
     left: 0;
     /* Маркер позиционируется как при outside */
@@ -667,15 +795,18 @@ header{
     margin: 40px auto;
     max-width: 800px;
     max-height: 90vh;
-    overflow: hidden; /* Скрываем стандартный скролл */
+    overflow: hidden;
+    /* Скрываем стандартный скролл */
     padding: 40px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
 .modal__body {
-    max-height: calc(90vh - 120px); /* Высота минус заголовок и паддинги */
+    max-height: calc(90vh - 120px);
+    /* Высота минус заголовок и паддинги */
     overflow-y: auto;
-    padding-right: 8px; /* Отступ для кастомного скроллбара */
+    padding-right: 8px;
+    /* Отступ для кастомного скроллбара */
 }
 
 /* Кастомный скроллбар для модального окна */
@@ -837,7 +968,8 @@ header{
 /* Отключение скролла страницы при открытом модальном окне */
 body.modal-open {
     overflow: hidden;
-    padding-right: 15px; /* Компенсация для избежания смещения контента */
+    padding-right: 15px;
+    /* Компенсация для избежания смещения контента */
 }
 
 /* Адаптивность */
@@ -848,22 +980,23 @@ body.modal-open {
         max-height: 95vh;
         max-width: calc(100% - 40px);
     }
-    
+
     .modal__body {
         max-height: calc(95vh - 80px);
         padding-right: 4px;
     }
-    
+
     .documents-vertical {
         gap: 20px;
     }
-    
+
     .document-vertical-item {
         max-width: 100%;
     }
-   
+
     body.modal-open {
-        padding-right: 0; /* На мобильных не нужно компенсировать */
+        padding-right: 0;
+        /* На мобильных не нужно компенсировать */
     }
 }
 
@@ -873,11 +1006,11 @@ body.modal-open {
         padding: 16px;
         max-width: calc(100% - 20px);
     }
-    
+
     .modal__body {
         max-height: calc(95vh - 60px);
     }
-    
+
     .documents-vertical {
         gap: 16px;
     }
@@ -1067,7 +1200,7 @@ body.modal-open {
     .burger-btn {
         display: none !important;
     }
-    
+
     .menu {
         display: block !important;
     }
@@ -1079,67 +1212,83 @@ body.mobile-menu-open {
 }
 
 @media (min-width: 1280px) and (max-width: 1679px) {
-    section, .section{
+
+    section,
+    .section {
         width: 1280px;
         padding: 70px 28px;
     }
-    
+
     /* Hero специфичные стили */
     .hero {
-        padding-left: 28px; /* Убираем большой отступ слева */
-        background-position: calc(100% + 165px) bottom;  /* heroBG: в правом нижнем углу */
+        padding-left: 28px;
+        /* Убираем большой отступ слева */
+        background-position: calc(100% + 165px) bottom;
+        /* heroBG: в правом нижнем углу */
     }
-    .hero_bage{
+
+    .hero_bage {
         right: 30px;
     }
+
     .hero_img img {
         right: 160px;
     }
-    
+
     /* FAQ специфичные стили */
     .faq__question {
         padding: 32px 28px;
     }
-    
+
     .faq__answer-content {
         padding: 0 28px 20px 28px;
     }
-    
+
     /* Меню*/
-    header{
+    header {
         width: 1280px;
         justify-content: start;
     }
+
     .menu {
         padding: 20px 30px 20px 30px;
     }
 }
 
-@media (min-width: 1024px) and (max-width: 1279px){
-    .mobbtn{
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .mobbtn {
         display: none !important;
     }
-    section, .section{
+
+    section,
+    .section {
         width: 1024px;
         padding: 70px 45px;
     }
-    .consult_item_price{
-         margin-bottom: 110px;
+
+    .consult_item_price {
+        margin-bottom: 110px;
     }
-    .hero{
-        background-position: calc(100% + 240px) bottom;  /* heroBG: в правом нижнем углу */
+
+    .hero {
+        background-position: calc(100% + 240px) bottom;
+        /* heroBG: в правом нижнем углу */
     }
+
     .hero_img img {
         right: 40px;
     }
-    .hero_description{
+
+    .hero_description {
         margin-bottom: 25px;
     }
-    .hero_bage{
+
+    .hero_bage {
         position: static;
         width: 100%;
         margin-bottom: 25px;
-    }   
+    }
+
     .hero_btn {
         padding: 20px 40px;
         font-size: 20px;
@@ -1149,6 +1298,7 @@ body.mobile-menu-open {
         justify-content: center;
         align-items: center;
     }
+
     /* Header */
     header {
         width: 1024px;
@@ -1157,36 +1307,40 @@ body.mobile-menu-open {
         padding: 0 24px;
         position: relative;
     }
-    
+
     /* Показываем бургер и скрываем обычное меню */
     .burger-btn {
         display: flex !important;
     }
-    
+
     .menu {
         display: none !important;
     }
-    
+
     .btnMenu {
         display: flex;
     }
-    .about_bage{
+
+    .about_bage {
         right: -40px;
         text-align: left;
         width: 130px;
     }
-    .groupTherapy_img{
+
+    .groupTherapy_img {
         display: none;
     }
-    .groupTherapy_img1024{
+
+    .groupTherapy_img1024 {
         display: block;
         overflow: hidden;
-        object-fit:cover;
+        object-fit: cover;
         width: 100%;
         object-position: left;
 
     }
-    .card_description_item:not(:last-child){
+
+    .card_description_item:not(:last-child) {
         padding-bottom: 24px;
     }
 }
@@ -1194,14 +1348,17 @@ body.mobile-menu-open {
 
 
 @media (min-width: 768px) and (max-width: 1023px) {
-    .mobbtn{
+    .mobbtn {
         display: none !important;
     }
-    section, .section{
+
+    section,
+    .section {
         width: calc(100% - 48px);
         max-width: 768px;
         padding: 70px 45px;
     }
+
     /* Header */
     header {
         width: calc(100% - 48px);
@@ -1211,6 +1368,7 @@ body.mobile-menu-open {
         padding: 0 24px;
         position: relative;
     }
+
     .hero {
         flex-direction: column;
         align-items: start;
@@ -1218,9 +1376,11 @@ body.mobile-menu-open {
         padding: 60px 32px;
         gap: 40px;
         height: 1000px;
-        background-position: center bottom;  /* heroBG*/
+        background-position: center bottom;
+        /* heroBG*/
     }
-    .hero_bage{
+
+    .hero_bage {
         position: absolute;
         right: 32px !important;
         top: 520px !important;
@@ -1229,10 +1389,11 @@ body.mobile-menu-open {
     .hero_header {
         margin-bottom: 24px;
     }
-    
+
     .hero_description {
         margin-bottom: 40px;
     }
+
     .hero_text {
         width: 100%;
         order: 1;
@@ -1241,16 +1402,18 @@ body.mobile-menu-open {
         align-items: start;
         justify-content: center;
     }
-    .hero_img img{
+
+    .hero_img img {
         left: 140px;
     }
-    .hero_img{
+
+    .hero_img {
         width: 100%;
         display: flex;
-        align-items:end;
+        align-items: end;
         order: 2;
     }
-    
+
     .hero_btn {
         padding: 20px 36px;
         font-size: 20px;
@@ -1260,71 +1423,90 @@ body.mobile-menu-open {
         justify-content: center;
         align-items: center;
     }
+
     .work_list {
         display: flex;
         flex-direction: column;
     }
-    .about_tiles{
+
+    .about_tiles {
         flex-direction: column;
     }
-    .about_text, .about_img{
+
+    .about_text,
+    .about_img {
         width: 100%;
     }
-    .about_text_btn{
+
+    .about_text_btn {
         margin-bottom: 32px;
     }
+
     .consult_list {
         flex-direction: column;
         gap: 0;
     }
-    .groupTherapy_desc{
+
+    .groupTherapy_desc {
         flex-direction: column-reverse;
     }
-    .groupTherapy_img{
+
+    .groupTherapy_img {
         height: 470px;
     }
-    .cardFlex{
+
+    .cardFlex {
         flex-direction: column-reverse;
         align-items: stretch;
     }
 
-    .card_placeholder, .card_img {
+    .card_placeholder,
+    .card_img {
         height: 100%;
-        width: 100%; /* Растягиваем на всю ширину */
+        width: 100%;
+        /* Растягиваем на всю ширину */
     }
-    .contactsFlex{
+
+    .contactsFlex {
         flex-direction: column-reverse;
     }
 }
 
 @media (min-width: 360px) and (max-width: 767px) {
-    .tag{
+    .tag {
         font-size: 12px;
         padding: 6px 15px;
         margin-bottom: 22px !important;
     }
-    .mobbtn{
+
+    .mobbtn {
         display: block;
     }
+
     .descbtn {
         display: none !important;
     }
+
     .burger-btn {
         width: 50px;
         height: 50px;
         border-radius: 12px;
     }
+
     .btn {
         font-size: 16px;
         padding: 15px 30px;
     }
-    section, .section{
+
+    section,
+    .section {
         width: calc(100% - 40px);
         max-width: 767px;
         padding: 32px 16px;
         border-radius: 40px;
         margin: 16px auto 0px auto;
     }
+
     /* Header */
     header {
         width: calc(100% - 40px);
@@ -1332,15 +1514,20 @@ body.mobile-menu-open {
         margin: 32px auto 0px auto;
         justify-content: space-between;
     }
-    .btnMenu_img{
+
+    .btnMenu_img {
         width: 50px;
     }
+
     .hero {
         flex-direction: column-reverse;
         align-items: center;
-        justify-content: space-between; /* Распределяем пространство */
-        padding: 40px 20px 0 20px; /* Убираем отступ снизу */
-        gap: 0; /* Убираем gap */
+        justify-content: space-between;
+        /* Распределяем пространство */
+        padding: 40px 20px 0 20px;
+        /* Убираем отступ снизу */
+        gap: 0;
+        /* Убираем gap */
         height: auto;
         background-position: center bottom;
         background-size: 100% auto;
@@ -1352,42 +1539,45 @@ body.mobile-menu-open {
         order: 1;
         display: flex;
         flex-direction: column;
-        align-items: start; /* Центрируем содержимое */
+        align-items: start;
+        /* Центрируем содержимое */
         justify-content: center;
     }
 
     .hero_img {
         display: flex;
         justify-content: center;
-        align-items: flex-end; /* Выравниваем по низу */
+        align-items: flex-end;
+        /* Выравниваем по низу */
     }
 
-    .hero_img img{
+    .hero_img img {
         position: static;
         width: 100%;
         max-width: 280px;
         height: auto;
-        margin-bottom: 0; /* Убираем отступ снизу */
+        margin-bottom: 0;
+        /* Убираем отступ снизу */
     }
 
     .hero_header {
         font-size: 32px;
         margin-bottom: 16px;
     }
-    
+
     .hero_description {
         font-size: 16px;
         margin-bottom: 24px;
     }
 
-    .hero_bage{
+    .hero_bage {
         display: none;
         position: static;
         font-size: 12px;
         width: 100%;
         margin-bottom: 24px;
     }
-    
+
     .hero_btn {
         padding: 16px 32px;
         font-size: 16px;
@@ -1398,159 +1588,201 @@ body.mobile-menu-open {
         align-items: center;
     }
 
-    .section_head{
+    .section_head {
         font-size: 24px;
         margin-bottom: 16px;
     }
-    .work_maps{
+
+    .work_maps {
         padding: 25px;
         border-radius: 24px;
     }
-    .work_maps_head{
+
+    .work_maps_head {
         font-size: 20px;
         margin-bottom: 16px;
     }
-    .work_maps_item{
+
+    .work_maps_item {
         font-size: 16px;
         margin-bottom: 16px;
     }
+
     .work_list {
         display: flex;
         flex-direction: column;
     }
-    .about_description{
+
+    .about_description {
         font-size: 16px;
         margin-bottom: 16px;
     }
-    .about_tiles{
+
+    .about_tiles {
         flex-direction: column;
     }
-    .about_text_maps{
+
+    .about_text_maps {
         padding: 16px;
         border-radius: 24px;
     }
-    .about_maps_head{
+
+    .about_maps_head {
         font-size: 20px;
         margin-bottom: 16px;
     }
-    .about_maps_item{
+
+    .about_maps_item {
         font-size: 16px;
     }
-    .about_text, .about_img{
+
+    .about_text,
+    .about_img {
         width: 100%;
     }
-    .about_img{
+
+    .about_img {
         border-radius: 24px;
         height: 400px;
     }
-    .about_img img{
+
+    .about_img img {
         width: 100%;
         height: auto !important;
         max-width: 100%;
     }
-    .about_bage{
+
+    .about_bage {
         right: -20px;
         top: 75px;
         text-align: left;
         font-size: 12px;
         width: 100px;
     }
-    .about_text_btn{
+
+    .about_text_btn {
         margin-bottom: 32px;
     }
-    .consult_item{
+
+    .consult_item {
         border-radius: 32px;
         margin-bottom: 16px;
         padding: 24px;
     }
-    .consult_item_head{
+
+    .consult_item_head {
         font-size: 20px;
     }
-    .consult_item_price{
+
+    .consult_item_price {
         font-size: 32px;
         margin-bottom: 32px;
     }
-    .consult_desc_item{
+
+    .consult_desc_item {
         font-size: 20px;
     }
+
     .consult_list {
         flex-direction: column;
         gap: 0;
     }
-    
-    .groupTherapy_text{
+
+    .groupTherapy_text {
         border-radius: 24px;
         padding: 16px;
         margin-bottom: 16px;
     }
-    .groupTherapy_img{
+
+    .groupTherapy_img {
         border-radius: 24px;
     }
-    .groupTherapy_text_head{
+
+    .groupTherapy_text_head {
         font-size: 20px;
     }
-    .groupTherapy_text_desc{
+
+    .groupTherapy_text_desc {
         font-size: 16px;
     }
-    .groupTherapy_desc{
+
+    .groupTherapy_desc {
         flex-direction: column-reverse;
-        gap:0;
+        gap: 0;
     }
-    .faq__question{
+
+    .faq__question {
         padding: 16px;
     }
-    .faq__question-text{
+
+    .faq__question-text {
         font-size: 16px;
     }
-    .faq__answer-content{
+
+    .faq__answer-content {
         font-size: 16px;
     }
+
     .faq__item {
         border-radius: 16px;
     }
-    .cardFlex{
+
+    .cardFlex {
         flex-direction: column-reverse;
         align-items: center;
         gap: 16px;
     }
-    .card_description{
+
+    .card_description {
         border-radius: 24px;
         padding: 16px 30px;
     }
-    .card_description_item{
+
+    .card_description_item {
         font-size: 16px;
     }
-    .card_description_item:not(:last-child){
+
+    .card_description_item:not(:last-child) {
         padding-bottom: 16px;
     }
 
-    .card_placeholder, .card_item, .card_img {
+    .card_placeholder,
+    .card_item,
+    .card_img {
         width: 100%;
-        height: 530px; /* Фиксированная высота 530px */
+        height: 530px;
+        /* Фиксированная высота 530px */
         min-height: 530px;
         border-radius: 24px;
     }
-    .card_placeholder_text{
+
+    .card_placeholder_text {
         font-size: 16px;
     }
-    .work_header{
+
+    .work_header {
         font-size: 20px;
     }
-    .work_desc{
+
+    .work_desc {
         font-size: 16px;
     }
-    .contactsFlex{
+
+    .contactsFlex {
         flex-direction: column-reverse;
     }
-    .contacts__head{
+
+    .contacts__head {
         font-size: 16px;
         margin-bottom: 8px;
     }
-    .contacts__desc{
+
+    .contacts__desc {
         font-size: 20px;
         margin-bottom: 24px;
     }
-    iframe{
+
+    iframe {
         width: 100%;
     }
 }
@@ -1560,14 +1792,16 @@ body.mobile-menu-open {
         width: 100%;
         border-radius: 0;
     }
+
     /* Показываем бургер и скрываем обычное меню */
     .burger-btn {
         display: flex !important;
     }
+
     .menu {
         display: none !important;
     }
-    
+
     .btnMenu {
         display: flex;
     }
@@ -1577,17 +1811,17 @@ body.mobile-menu-open {
 /* БАЗОВЫЕ СТИЛИ ТУЛТИПА - ТОЧНО РАБОТАЮТ */
 /* Стили для тултипа с хвостиком */
 /* Термин без подчеркивания */
-.tooltip-term{
+.tooltip-term {
     cursor: default;
 }
 
-.tooltip-wrap{
+.tooltip-wrap {
     display: inline-flex;
     align-items: center;
 }
 
 /* Иконка информера */
-.tooltip-icon{
+.tooltip-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1611,14 +1845,17 @@ body.mobile-menu-open {
     transform: scale(1.1);
 }
 
-.tooltip-icon__glyph{
+.tooltip-icon__glyph {
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 12px;
     transition: inherit;
 }
-@media (max-width: 767px){
-    .tooltip-icon{ touch-action: manipulation; }
+
+@media (max-width: 767px) {
+    .tooltip-icon {
+        touch-action: manipulation;
+    }
 }
 
 .tooltip {
@@ -1667,7 +1904,7 @@ body.mobile-menu-open {
         transform: translateY(-50%);
         margin-left: 8px;
     }
-    
+
     .tooltip::before {
         left: -8px;
         top: 50%;
@@ -1683,7 +1920,7 @@ body.mobile-menu-open {
         transform: translateX(-50%);
         margin-top: 8px;
     }
-    
+
     .tooltip::before {
         left: 50%;
         top: -8px;
@@ -1693,12 +1930,14 @@ body.mobile-menu-open {
     }
 }
 
-.contactsText{
+.contactsText {
     display: flex;
     flex-direction: column;
-    height: 100%; /* или задайте конкретную высоту */
+    height: 100%;
+    /* или задайте конкретную высоту */
     justify-content: space-between;
 }
+
 /* Стили для социальных иконок в контактах */
 .contact_social {
     display: flex;
@@ -1712,33 +1951,33 @@ body.mobile-menu-open {
     transition: all 0.3s ease;
 }
 
-.contact_icon:hover{
+.contact_icon:hover {
     stop-color: var(--dorangeColor) !important;
 }
 
 .contact_icon:hover .cls-2 {
-  stop-color: var(--dorangeColor) !important;
+    stop-color: var(--dorangeColor) !important;
 }
 
 /* Для WhatsApp градиента */
 .contact_icon:hover #whatsapp_gradient stop {
-  stop-color: var(--dorangeColor) !important;
+    stop-color: var(--dorangeColor) !important;
 }
 
 /* Для Telegram градиента */
 .contact_icon:hover #tg_gradient stop {
-  stop-color: var(--dorangeColor) !important;
+    stop-color: var(--dorangeColor) !important;
 }
 
 /* Для VK градиента */
 .contact_icon:hover #vk_gradient stop {
-  stop-color: var(--dorangeColor) !important;
+    stop-color: var(--dorangeColor) !important;
 }
 
 .cls-1 {
-  fill: #fff;
+    fill: #fff;
 }
 
 .cls-2 {
-  transition: fill 0.3s ease;
+    transition: fill 0.3s ease;
 }

@@ -5,13 +5,13 @@ const App = {
       isModalOpen: false,
       isImageModalOpen: false,
       isMobileMenuOpen: false,
-      currentImage: '',
+      currentImage: "",
       /*Тултипы*/
       isTooltipVisible: false,
-      tooltipText: '',
+      tooltipText: "",
       tooltipStyle: {
-        left: '100px',
-        top: '100px'
+        left: "100px",
+        top: "100px",
       },
       targetElement: null,
       isTouchDevice: false,
@@ -20,20 +20,20 @@ const App = {
       documents: [
         {
           image: "src/img/docs/1.webp",
-          title: "Диплом о высшем образовании"
+          title: "Диплом о высшем образовании",
         },
         {
-          image: "src/img/docs/2.webp", 
-          title: "Диплом магистра"
+          image: "src/img/docs/2.webp",
+          title: "Диплом магистра",
         },
         {
           image: "src/img/docs/3.webp",
-          title: "Сертификат специалиста"
-        }
+          title: "Сертификат специалиста",
+        },
       ],
       faqItems: [
         {
-          question: 'Как понять, что мне нужна помощь психолога?',
+          question: "Как понять, что мне нужна помощь психолога?",
           answer: `<p>О том, что вам стоит обратиться к психологу могут сообщать следующие признаки:</p>
                   <ul>
                     <li class="faq_description_item">Вы постоянно чувствуете тревогу, апатию или грусть, и это состояние не проходит.</li>
@@ -41,29 +41,30 @@ const App = {
                     <li class="faq_description_item">У вас проблемы со сном, аппетитом, или вы чувствуете постоянное физическое напряжение.</li>
                     <li class="faq_description_item">Вы не можете найти общий язык с близкими, чувствуете себя одиноким.</li>
                   </ul>`,
-          isOpen: false
+          isOpen: false,
         },
         {
-          question: 'С чего начать работу с психологом?', 
+          question: "С чего начать работу с психологом?",
           answer: `<p>Начать терапию — это как начать новое путешествие. Главное — сделать первый шаг. И он не требует от вас быть «готовым» или знать все ответы.</p>
                   <br><p>Вам не нужно заранее продумывать, что сказать. Не нужно готовиться. Психолог поможет вам сориентироваться.</p>`,
-          isOpen: false
+          isOpen: false,
         },
         {
-          question: 'Сколько длится курс терапии и как часто проходят встречи?',
+          question: "Сколько длится курс терапии и как часто проходят встречи?",
           answer: `Минимальный курс терапии у психолога длится от десяти сессий по одной встрече в неделю. Есть запросы, которые не требуют долгосрочной работы с психологом, их можно решить за несколько консультаций.`,
-          isOpen: false
+          isOpen: false,
         },
         {
-          question: 'Как быстро можно увидеть результаты терапии?',
+          question: "Как быстро можно увидеть результаты терапии?",
           answer: `Иногда облегчение приходит уже после первой сессии с психологом. В остальном скорость появления результатов зависит от глубины и сложности состояния в котором пришел клиент.`,
-          isOpen: false
+          isOpen: false,
         },
         {
-          question: 'Могу ли я остаться анонимным и насколько конфиденциальна консультация?',
+          question:
+            "Могу ли я остаться анонимным и насколько конфиденциальна консультация?",
           answer: `Психолог гарантирует анонимность и конфиденциальность во время и после консультаций.`,
-          isOpen: false
-        }
+          isOpen: false,
+        },
       ],
       card: [
         {
@@ -110,7 +111,7 @@ const App = {
           id: 4,
           path: "src/img/cards/4.webp",
           name: "Бабочка",
-          description:`
+          description: `
                 <p>Бабочка взмахнула своими крыльями. Что-то в вашей жизни готово к трансформации. Все трудности и преграды становятся опытом, в котором вы растете и меняетесь к лучшему.</p>`,
         },
         {
@@ -176,21 +177,21 @@ const App = {
           id: 12,
           path: "src/img/cards/13.webp",
           name: "Паук",
-          description:`
+          description: `
                 <p>Паук, предлагает остановиться и взвесить: вы действительно готовы встретиться с тем, что находиться дальше? С вашим страхом, стыдом или может быть болью? Готовы ли вы сами плести свою судьбы?</p>`,
         },
         {
           id: 13,
           path: "src/img/cards/14.webp",
           name: "Медведь",
-          description:`
+          description: `
                 <p>Необходимо периодически погружаться в глубины своего «Я» и пробуждать внутреннюю силу, однако вкус к жизни вы сможете почувствовать лишь после того, как выведете эту силу на свет и найдете ей практическое применение. </p>`,
         },
         {
           id: 14,
           path: "src/img/cards/15.webp",
           name: "Тигр",
-          description:`
+          description: `
                 <p>Тигр расскажет вам как быть в уединении с собой, научит медитации, покажет вам внутри вас ваше сокровенное место, где вы всегда на связи с самим собой и можете увидеть ответы на все ваши жизненные вопросы. </p>
                 <p>Тигр советует вам никогда не идти на компромисс, не предавать себя и не идти ни у кого на поводу</p>`,
         },
@@ -198,7 +199,7 @@ const App = {
           id: 15,
           path: "src/img/cards/16.webp",
           name: "Конь",
-          description:`
+          description: `
                 <p>Солнце, совершая свой путь, уступает место тьме, чтобы вновь возродиться на рассвете.</p>
                 <p>Как Конь-Солнце, несущее всадника сквозь тьму к новому рождению, — в вашей жизни назрели перемены, а может, они уже начались.</p>
                 <p>Прислушайтесь к себе: что сковывает поток вашей силы? Освободитесь от отжившего, отпустите чужие ожидания и убеждения. Обретите свободу для подлинного пути.</p>`,
@@ -207,7 +208,7 @@ const App = {
           id: 16,
           path: "src/img/cards/17.webp",
           name: "Леопард",
-          description:`
+          description: `
                 <p>Леопард, напоминает, сколько ресурсов у вас есть.</p>
                 <p>Вы, как и леопард, можете выбирать из множества ресурсов, потому что у вас есть на это полномочия.</p>
                 <p>Леопард хочет, чтобы вы поняли силу, которая скрывается в тени вашей жизни. Обладая этим знанием, вы сможете использовать благость этой силы</p>`,
@@ -236,8 +237,10 @@ const App = {
     const cookies = document.cookie
       .split(";")
       .map((cookie) => cookie.split("="));
-    const dayCardCookie = cookies.find((cookie) => cookie[0].trim() === "dayCard");
-    
+    const dayCardCookie = cookies.find(
+      (cookie) => cookie[0].trim() === "dayCard"
+    );
+
     if (dayCardCookie != undefined) {
       // Если кука найдена, устанавливаем карту
       const savedCardId = parseInt(dayCardCookie[1]);
@@ -255,25 +258,60 @@ const App = {
     }
   },
   methods: {
-  // Новый метод для показа случайной карты
+    // Новый метод для показа случайной карты
     showRandomCard() {
-      // Генерируем случайную карту от 1 до 19
+      // Проверяем куку с датой
+      const cookies = document.cookie
+        .split(";")
+        .map((cookie) => cookie.split("="));
+
+      const dayCardCookie = cookies.find(
+        (cookie) => cookie[0].trim() === "dayCard"
+      );
+      const cardDateCookie = cookies.find(
+        (cookie) => cookie[0].trim() === "cardDate"
+      );
+
+      const today = new Date().toDateString();
+
+      // Если есть карта и она для сегодняшнего дня
+      if (dayCardCookie && cardDateCookie && cardDateCookie[1] === today) {
+        const savedCardId = parseInt(dayCardCookie[1]);
+        if (savedCardId >= 1 && savedCardId <= 19) {
+          this.numRnd = savedCardId;
+          console.log("Карта дня уже выбрана сегодня:", this.numRnd);
+          return;
+        }
+      }
+
+      // Генерируем новую карту
       const randomCardId = this.getRandomInt(1, 19);
       this.numRnd = randomCardId;
-      
-      // Сохраняем в куки
-      let expirationDate = new Date();
-      expirationDate.setDate(expirationDate.getDate() + 1);
-      expirationDate.setUTCHours(23, 59, 59, 999);
-      
-      document.cookie =
-        "dayCard=" +
-        randomCardId +
-        "; expires=" +
-        expirationDate.toUTCString() +
-        "; path=/";
-    },
 
+      // Сохраняем карту и дату
+      const endOfDay = new Date();
+      endOfDay.setHours(23, 59, 59, 999);
+
+      document.cookie = `dayCard=${randomCardId}; expires=${endOfDay.toUTCString()}; path=/`;
+      document.cookie = `cardDate=${today}; expires=${endOfDay.toUTCString()}; path=/`;
+
+      console.log("Новая карта дня:", randomCardId);
+    },
+    canChooseCardToday() {
+      const cookies = document.cookie
+        .split(";")
+        .map((cookie) => cookie.split("="));
+
+      const dayCardCookie = cookies.find(
+        (cookie) => cookie[0].trim() === "dayCard"
+      );
+      const cardDateCookie = cookies.find(
+        (cookie) => cookie[0].trim() === "cardDate"
+      );
+      const today = new Date().toDateString();
+
+      return !(dayCardCookie && cardDateCookie && cardDateCookie[1] === today);
+    },
     // Обновленный рандомайзер
     getRandomInt(min, max) {
       min = Math.ceil(min);
@@ -291,7 +329,7 @@ const App = {
           }
         });
       }
-      
+
       this.faqItems[index].isOpen = !this.faqItems[index].isOpen;
     },
     //FAQ
@@ -311,20 +349,20 @@ const App = {
     },
     closeImageModal() {
       this.isImageModalOpen = false;
-      this.currentImage = '';
+      this.currentImage = "";
       // Включаем скролл только если основное модальное окно закрыто
       if (!this.isModalOpen) {
         this.enableBodyScroll();
       }
     },
     disableBodyScroll() {
-      document.body.classList.add('modal-open');
-      document.documentElement.style.overflow = 'hidden';
+      document.body.classList.add("modal-open");
+      document.documentElement.style.overflow = "hidden";
     },
 
     enableBodyScroll() {
-      document.body.classList.remove('modal-open');
-      document.documentElement.style.overflow = '';
+      document.body.classList.remove("modal-open");
+      document.documentElement.style.overflow = "";
     },
     //Модальное окно
 
@@ -332,56 +370,58 @@ const App = {
     toggleMobileMenu() {
       this.isMobileMenuOpen = !this.isMobileMenuOpen;
       if (this.isMobileMenuOpen) {
-        document.body.classList.add('mobile-menu-open');
-        document.body.style.overflow = 'hidden';
+        document.body.classList.add("mobile-menu-open");
+        document.body.style.overflow = "hidden";
       } else {
-        document.body.classList.remove('mobile-menu-open');
-        document.body.style.overflow = '';
+        document.body.classList.remove("mobile-menu-open");
+        document.body.style.overflow = "";
       }
     },
-    
+
     closeMobileMenu() {
       this.isMobileMenuOpen = false;
-      document.body.classList.remove('mobile-menu-open');
-      document.body.style.overflow = '';
+      document.body.classList.remove("mobile-menu-open");
+      document.body.style.overflow = "";
     },
     //Бургер меню
 
     /*Тултипы - переписанные методы*/
     showTooltip(text, event) {
       // На десктопе показываем при hover, на мобильных игнорируем hover
-      if (event && event.type === 'mouseenter' && this.isTouchDevice) {
+      if (event && event.type === "mouseenter" && this.isTouchDevice) {
         return;
       }
-      
+
       this.tooltipText = text;
       this.isTooltipVisible = true;
-      this.targetElement = event && event.currentTarget ? event.currentTarget : null;
-      
+      this.targetElement =
+        event && event.currentTarget ? event.currentTarget : null;
+
       // Генерируем уникальный ID для тултипа
-      const tooltipId = this.targetElement ? 
-        this.targetElement.getAttribute('data-tooltip-id') || 
-        'tooltip-' + Date.now() : null;
+      const tooltipId = this.targetElement
+        ? this.targetElement.getAttribute("data-tooltip-id") ||
+          "tooltip-" + Date.now()
+        : null;
       this.activeTooltipId = tooltipId;
-      
+
       this.$nextTick(() => {
         if (this.targetElement) {
           const rect = this.targetElement.getBoundingClientRect();
           const isDesktop = window.innerWidth >= 768;
-          
+
           if (isDesktop) {
             // Справа на десктопе
             this.tooltipStyle = {
-              left: (rect.right + 10) + 'px',
-              top: (rect.top + (rect.height / 2)) + 'px',
-              transform: 'translateY(-50%)'
+              left: rect.right + 10 + "px",
+              top: rect.top + rect.height / 2 + "px",
+              transform: "translateY(-50%)",
             };
           } else {
             // Снизу на мобильных
             this.tooltipStyle = {
-              left: (rect.left + (rect.width / 2)) + 'px',
-              top: (rect.bottom + 10) + 'px',
-              transform: 'translateX(-50%)'
+              left: rect.left + rect.width / 2 + "px",
+              top: rect.bottom + 10 + "px",
+              transform: "translateX(-50%)",
             };
           }
         }
@@ -390,10 +430,10 @@ const App = {
 
     toggleTooltip(text, event) {
       if (!event) return;
-      
+
       const currentTarget = event.currentTarget;
-      const tooltipId = currentTarget.getAttribute('data-tooltip-id');
-      
+      const tooltipId = currentTarget.getAttribute("data-tooltip-id");
+
       // Если кликаем по той же иконке, скрываем тултип
       if (this.isTooltipVisible && this.activeTooltipId === tooltipId) {
         this.hideTooltip();
@@ -407,42 +447,41 @@ const App = {
       // На мобильных: одинарное нажатие показывает/скрывает тултип
       event.preventDefault();
       event.stopPropagation();
-      
+
       const currentTarget = event.currentTarget;
-      const tooltipId = currentTarget.getAttribute('data-tooltip-id');
-      
+      const tooltipId = currentTarget.getAttribute("data-tooltip-id");
+
       if (this.isTooltipVisible && this.activeTooltipId === tooltipId) {
         this.hideTooltip();
       } else {
         this.showTooltip(text, event);
       }
     },
-    
-  
+
     updateTooltipPosition() {
       if (this.targetElement && this.isTooltipVisible) {
         const rect = this.targetElement.getBoundingClientRect();
         const isDesktop = window.innerWidth >= 768;
-        
+
         if (isDesktop) {
           this.tooltipStyle = {
-            left: (rect.right + 10) + 'px',
-            top: (rect.top + (rect.height / 2)) + 'px',
-            transform: 'translateY(-50%)'
+            left: rect.right + 10 + "px",
+            top: rect.top + rect.height / 2 + "px",
+            transform: "translateY(-50%)",
           };
         } else {
           this.tooltipStyle = {
-            left: (rect.left + (rect.width / 2)) + 'px',
-            top: (rect.bottom + 10) + 'px',
-            transform: 'translateX(-50%)'
+            left: rect.left + rect.width / 2 + "px",
+            top: rect.bottom + 10 + "px",
+            transform: "translateX(-50%)",
           };
         }
       }
     },
-hideTooltip() {
+    hideTooltip() {
       // Сбрасываем стили всех знаков вопроса
       this.resetAllTooltipIcons();
-      
+
       this.isTooltipVisible = false;
       this.targetElement = null;
       this.activeTooltipId = null;
@@ -450,9 +489,9 @@ hideTooltip() {
 
     // Метод для сброса всех знаков вопроса
     resetAllTooltipIcons() {
-      const tooltipIcons = document.querySelectorAll('.tooltip-icon');
-      tooltipIcons.forEach(icon => {
-        icon.classList.remove('tooltip-icon--active');
+      const tooltipIcons = document.querySelectorAll(".tooltip-icon");
+      tooltipIcons.forEach((icon) => {
+        icon.classList.remove("tooltip-icon--active");
       });
     },
 
@@ -472,18 +511,20 @@ hideTooltip() {
 
     // Также сбрасываем при клике вне тултипа
     handleClickOutside(event) {
-      if (this.isTooltipVisible && 
-          !event.target.closest('.tooltip') && 
-          !event.target.closest('.tooltip-icon')) {
+      if (
+        this.isTooltipVisible &&
+        !event.target.closest(".tooltip") &&
+        !event.target.closest(".tooltip-icon")
+      ) {
         this.resetAllTooltipIcons();
         this.hideTooltip();
       }
-    }
+    },
   },
   mounted() {
     // Закрытие модальных окон и меню по ESC
     this._onKeydown = (e) => {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         if (this.isImageModalOpen) {
           this.closeImageModal();
         } else if (this.isModalOpen) {
@@ -493,41 +534,45 @@ hideTooltip() {
         }
       }
     };
-    document.addEventListener('keydown', this._onKeydown);
+    document.addEventListener("keydown", this._onKeydown);
     // Определяем тач-устройство
-    this.isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-    
+    this.isTouchDevice =
+      "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
     // Закрытие при клике вне меню
-    document.addEventListener('click', (e) => {
-      if (this.isMobileMenuOpen && 
-          !e.target.closest('.mobile-menu__content') && 
-          !e.target.closest('.burger-btn')) {
+    document.addEventListener("click", (e) => {
+      if (
+        this.isMobileMenuOpen &&
+        !e.target.closest(".mobile-menu__content") &&
+        !e.target.closest(".burger-btn")
+      ) {
         this.closeMobileMenu();
       }
     });
     //Тултип
     // Определяем тач-устройство
-    this.isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-    
+    this.isTouchDevice =
+      "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
     // Добавляем обработчики для тултипов
-    window.addEventListener('scroll', this.handleScroll, { passive: true });
-    window.addEventListener('resize', this.handleResize);
-    document.addEventListener('click', this.handleClickOutside);
-    
+    window.addEventListener("scroll", this.handleScroll, { passive: true });
+    window.addEventListener("resize", this.handleResize);
+    document.addEventListener("click", this.handleClickOutside);
+
     // Генерируем уникальные ID для всех тултипов
     this.$nextTick(() => {
-      const tooltipIcons = document.querySelectorAll('.tooltip-icon');
+      const tooltipIcons = document.querySelectorAll(".tooltip-icon");
       tooltipIcons.forEach((icon, index) => {
-        icon.setAttribute('data-tooltip-id', `tooltip-${index}`);
+        icon.setAttribute("data-tooltip-id", `tooltip-${index}`);
       });
     });
   },
-   beforeUnmount() {
+  beforeUnmount() {
     // Убедимся, что скролл включен при размонтировании компонента
     this.enableBodyScroll();
-    window.removeEventListener('scroll', this.handleScroll, { passive: true });
-    window.removeEventListener('resize', this.handleResize);
-    document.removeEventListener('click', this.handleClickOutside);
-  }
+    window.removeEventListener("scroll", this.handleScroll, { passive: true });
+    window.removeEventListener("resize", this.handleResize);
+    document.removeEventListener("click", this.handleClickOutside);
+  },
 };
 Vue.createApp(App).mount("#app");
